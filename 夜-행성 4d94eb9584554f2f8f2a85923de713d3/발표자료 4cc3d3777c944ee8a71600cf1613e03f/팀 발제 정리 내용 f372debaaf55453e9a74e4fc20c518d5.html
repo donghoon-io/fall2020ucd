@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>팀 발제 정리 내용</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f372deba-af55-453e-9a74-e4fc20c518d5" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎤</span></div><h1 class="page-title">팀 발제 정리 내용</h1></header><div class="page-body"><h3 id="bfafb2e3-5c3f-4ea4-906a-1f2e681292ec" class="block-color-yellow_background">#1 Point-of-View Madlib (p21), Design Principles (p25), “How Might We” Questions (p26), Brainstorm (p28-29)</h3><figure id="2b1a08c0-a2e6-4f44-ae17-13edb55216e0" class="link-to-page"><a href="%E1%84%90%E1%85%B5%E1%86%B7%20%E1%84%87%E1%85%A1%E1%86%AF%E1%84%8C%E1%85%A6%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5%20%E1%84%82%E1%85%A2%E1%84%8B%E1%85%AD%E1%86%BC%20f372debaaf55453e9a74e4fc20c518d5/Eng%20version%202b1a08c0a2e64f44ae1713edb55216e0.html">Eng version</a></figure><h1 id="22db8b54-4ede-4921-b43c-c8d591d5dfbd" class="">POV (21p)</h1><p id="36e9f200-f735-4858-a2e3-6a8c0dd941a0" class="">
+</p><ul id="204912f5-555f-400d-aef8-0158846658ff" class="bulleted-list"><li style="list-style-type:disc">POV는 design challenge를 actionable problem statement로 재구성하는 것으로 이를 통해 Generative Ideation이 가능해짐.</li></ul><ul id="67466395-72b5-46c7-bc4b-03df58bd38b3" class="bulleted-list"><li style="list-style-type:disc">좋은 POV → HMW questions을 생성함으로써 더 직접적인 방법으로  Ideate </li></ul><ul id="12b85cb4-1835-44c1-8951-2a94ffc29243" class="bulleted-list"><li style="list-style-type:disc">POV는 디자이너의 design vision을 포착한다 : 디자이너의 책임이자 기회는 의미있는 challenge를 발견하고 분명하게 표현하는 것</li></ul><p id="5e30ba48-83ac-4494-a0f9-11a2be6d483b" class="">
+</p><ul id="8173737e-c135-4574-8da1-3aa2bb016b17" class="bulleted-list"><li style="list-style-type:disc">POV의 3가지 구성 요소 : user, need, insight</li></ul><p id="f4547641-c2ea-41fb-a829-3db4024a0905" class="">
+</p><p id="8a453527-75e8-4985-bf0e-d89108c6569a" class="">[<strong>User</strong>] needs to [<strong>User&#x27;s need</strong>] because [surprising <strong>insight</strong>]</p><p id="d36b20fd-f615-4801-8fb6-b8a8751da5ac" class="">                                  ↓                                                 ↓                      </p><p id="1526d63d-3b5b-45fd-a071-311324862666" class="">                                동사형태              </p><p id="779c5fa0-ecb5-4d91-b681-525abf00e1dc" class="">
+</p><ul id="a70467e8-4ca8-465b-a7d4-3372596a04b6" class="bulleted-list"><li style="list-style-type:disc">insight가 단순히 need에 대한 이유가 되어서는 안됨. solution을 design할 때 leverage할 수 있는 종합된 statement여야 함.</li></ul><ul id="2ba61efa-3f2e-4628-aa07-741c02755326" class="bulleted-list"><li style="list-style-type:disc">이 때 insight는 사람들이 흥미를 가지게 하고 POV에 텐션을 유지할 수 있게 해야함. (여기서는 keep it sexy라는 표현을 썼네요 아주 그냥,, 도발적이네,,, )</li></ul><p id="716a801c-92f3-4f92-ba12-3e839c8c8ed9" class="">
+</p><p id="96f7de07-5ca8-436c-8302-7be4b1a20f91" class="">Ex) </p><p id="8be54973-658e-4e32-ad96-102032a9f950" class="">
+</p><ol type="1" id="b2c7918c-339f-4723-90f5-7688ce891828" class="numbered-list" start="1"><li>&quot;A teenage girl needs more nutritious food because vitamins are vital to good health&quot;</li></ol><ol type="1" id="68b293d0-d702-4dbc-b133-8c07ad8a1d40" class="numbered-list" start="2"><li>&quot;A teenage girl with a bleak outlook needs to feel more socially accepted when eating healthy food, because in her hood a social risk is more dangerous than a health risk.&quot;</li></ol><p id="8a7137ee-1705-4e9a-bbfc-dab520d651fd" class="">
+</p><p id="24373329-f28a-451c-82ef-78a8221fba2a" class="">No.1 is 팩트 제시, 흥미롭지 않고 solution으로 develop하기 어려움</p><p id="b1308f85-2ffa-4b60-88bd-879fbd6d1394" class="">No.2 is 실행가능하고, 잠재적으로 생산적 (potentially generative), 문제 제시, </p><p id="bce23399-5639-487c-95d4-465a43e05505" class="">
+</p><h1 id="681d0438-f70a-4e2f-bfd0-79f815b106f7" class="">Design Principles (25p)</h1><p id="c5be0c37-f0ca-4337-b01a-3809544f8f8b" class="">
+</p><p id="83def4b8-91a2-4707-92e1-b585e7ca6604" class=""><strong>Why</strong></p><ul id="ac33ca26-7c37-4456-a45e-9a2a861b60b1" class="bulleted-list"><li style="list-style-type:disc">Design principles은 Design challenge를 해결하기 위한 전략으로 구체적인 solution에서는 독립적이다. 디자이너는 POV를 통해 정리한 user needs와 insight와 같은 발견들을 design directives로 translate하여 principles들을 분명하게 해야함. </li></ul><ul id="f5f1b7da-1eda-49ea-8eee-fd37b7bd5819" class="bulleted-list"><li style="list-style-type:disc">이러한 principles은 디자이너에게 추상적이지만 실행가능한 solution에 대한 가이드라인을 제공하고 다른 사람들과 design intention에 대해 소통할 수 있는 포맷을 제공한다.</li></ul><p id="1af78a5c-ec2a-44a9-9cde-f12db296af46" class="">
+</p><p id="fa8fe1ca-22f5-4fc5-8772-1185f46393ee" class=""><strong>How to use</strong></p><p id="242035dc-df4d-48bb-87bc-a23ff5c24634" class="">
+</p><ul id="647d5c88-6850-4da1-9815-57243f6016b3" class="bulleted-list"><li style="list-style-type:disc">디자이너는 성공적인 design solution을 만들기 위해 필수적인 guideline을 설명하는 imperative phrasing을 사용하여 statement 목록을 작성해야 한다.</li></ul><p id="9e39d9b6-5bee-4e2f-884c-f6ac9d5b2070" class="">이때, guideline은 </p><ul id="c211f9f8-32a7-4193-b189-ff9d6c7f7c06" class="bulleted-list"><li style="list-style-type:disc">Design space와 user에 대한 이해를 뽑아내야 한다. (포함해야)</li></ul><ul id="cdf3bbba-7daf-4538-8381-fe4c99c4d96f" class="bulleted-list"><li style="list-style-type:disc">empathy work를 바탕으로 해결하는 의미가 있는 challenge들을 정의해야 하며 </li></ul><p id="5eeab5b6-9d52-4773-87e7-cf347fa4e8b0" class="">↓</p><p id="6c267c47-6341-47d9-9f22-23a5ea219012" class="">이 과정들을 거쳐 그 성공을 이루기 위해 필요한 것을 개략적으로 설명하기 위한 design principles를 창조해야 한다.</p><p id="706b1a8c-e83b-4908-977c-f037caa576f0" class="">                              ↓          </p><p id="43b9ce88-4830-431c-9af0-155c12de6a62" class="">Design principles를 발전시키는 방법은 몇 가지가 있는데, </p><ul id="322730c8-8582-461b-a013-683ae7b5f2a1" class="bulleted-list"><li style="list-style-type:disc">첫째, 발견한 user-centered needs와 insights들을 유지하면서 해결책 측면에서 발견한 내용을 기술함으로써 POV, needs, insights를 design principles으로 풀어낼 수 있다. </li></ul><p id="778c35eb-f10a-49b2-8c5b-3dc1594ff09f" class="">
+</p><ul id="6d2f0e32-ad88-41ef-b836-d93d0064d997" class="bulleted-list"><li style="list-style-type:disc">둘째, 디자이너(당신)&amp;user가 매력적이라고 생각하는 잠재적 solution에서 design principles을 제거. solution의 어떤 측면이 user와 공감하는지 그리고 이러한 측면이 추상화되어 design principles로 형성 될 수 있는지 생각해봐야 한다.</li></ul><p id="600e1a33-9cb9-4ca7-b80a-6e1b49632c19" class="">
+</p><p id="68543abd-8d09-4ca4-8fad-e9397092bd1c" class="">Ex) &quot;A user&#x27;s need to feel instrumental in creating a gift&quot;라는 design directive는 &quot;involve the user in creating the final gift outcome&quot;이라는 solution을 가져야 함. </p><p id="143b5daf-9a43-4e59-8e95-28dcb7f6ea55" class="">
+</p><p id="6629fc34-e110-4b7a-8469-eab92abdbdab" class="">
+</p><p id="0db61f47-3135-43b3-b57f-4c734dce8eb2" class="">Design principles 은 구체적인 solution에서 독립되어야 한다. 특정한 solution과 관계없이 유용한 guideline이 되어야 한다는 뜻. 하지만 design principles를 발전시키는 데 도움이되는 광범위한 solution context를 식별하는 것은 유용하다.</p><p id="529f41ba-43f4-48d8-85c8-d457b5ce0294" class="">
+</p><p id="8b90e2ed-1e98-4616-aebc-1c5fa5229477" class="">Ex) know you are designing physical space - help understand how to phrase your principles. (실제 장소를 디자인한다는 것을 알면 principles를 어떻게 구성해야할지 알 수 있음.</p><p id="72914f07-79ff-4157-af51-1adbfa571651" class="">                                                                   vs</p><p id="358bfa9c-be74-40bc-9ca0-2d731faedc46" class="">     know you are creating gift but not know whether it will be physical, digital or experiential       </p><p id="b235b84d-d140-4b96-aada-e12eadbdd3dc" class="">선물을 만들어야하는 것은 아는데 어떤 형태인지 모를 경우에도 context는 위에 언급되었던 solution(Involve the user in creating the final gift outcome&quot;) 을 명확하게 할 수 있다.</p><p id="68360b54-57d2-433b-80d3-a631aa0e313d" class="">
+</p><p id="9111054c-b8cf-4d6a-84fb-ea2a57cefd29" class="">
+</p><p id="9f945335-9bb7-40b0-9a6d-893e0a14d878" class="">
+</p><h1 id="c7ceebcb-6a85-442e-953d-dc656c543d03" class="">How Might We Questions(26p)</h1><p id="3c486384-bb71-41b8-9d2a-0d861a6e652f" class="">
+</p><p id="ba7b11c0-0c00-4e0b-a7ac-9efb0f46193d" class=""><strong>Why</strong></p><ul id="acc75a4e-4194-4830-ac3f-cf2eddbc50ad" class="bulleted-list"><li style="list-style-type:disc">HMW questions → 브레인스토밍을 시작하게 하는 짧은 질문들 </li></ul><ul id="00a44242-354a-4350-921c-16a844a8a61d" class="bulleted-list"><li style="list-style-type:disc"><strong>HMW Questions은 </strong>POV / Design Principles에서 나오고, 이 질문들은 ideation의 시작/원동력이 된다.</li></ul><ul id="baf5b5f9-9f14-4287-8a0e-d0c72d871b76" class="bulleted-list"><li style="list-style-type:disc">HMW questions들은 다양한 범위에서 solutions이 나올 수 있도록 충분히 넓어야 하고, 팀이 도움이 되는 boundaries를 가지도록 좁아야 한다. (너무 지나치게 넓어도, 좁아도 안된다는 의미</li></ul><ul id="18ba50d3-0adb-4925-b9c1-1d43865e1a6f" class="bulleted-list"><li style="list-style-type:disc">HMW questions은 프로젝트의 종류에 따라 다르고 팀의 프로젝트 진행 상황에 따라서도 달라짐.                                                   </li></ul><p id="b5fcc8d8-abfd-4cc3-ac7a-3124596a481d" class="">
+</p><p id="10494d8b-34ce-4d8d-9ada-8771c9534df8" class="">
+</p><p id="b0c37a1f-4b1b-4d74-a0cf-34e606300449" class="">
+</p><p id="90c610a3-8e09-4a7c-9c1a-1c7dd341cc4a" class="">HMW questions을 생성하는 방법</p><ol type="1" id="27b4b813-536d-4c60-aacd-c6a3a4f1e9d9" class="numbered-list" start="1"><li>POV 혹은 problem statement 에서 시작</li></ol><ol type="1" id="383d62bc-4e83-4500-af29-086057bae0b7" class="numbered-list" start="2"><li>큰 challenge를 작은 실행가능한 것들로 나눔</li></ol><ol type="1" id="5c4940a3-fa6f-4e0d-bb13-5cebc8ac6287" class="numbered-list" start="3"><li> How might we.... 문장을 완성하기 위해 들어갈 수 있는 요소들에 대해 탐구</li></ol><p id="a1882bbe-5b73-4486-b8e4-959bf08b0598" class="">
+</p><p id="c6f8c9a2-8c9a-4519-be41-e2669b0194c8" class="">solution 이전에 HMW questions에 대한 브레인 스토밍이 이루어져야 한다.</p><p id="053db3cb-1b1f-4159-a8cb-1b46ca74b3ef" class="">
+</p><p id="d8c25cf0-2060-414a-8a43-5ad02804e7cb" class="">
+</p><p id="fbccf3cb-63f8-4d70-8926-f18569c1f2aa" class="">
+</p><h1 id="5d6469b6-10ae-4ea1-8ca5-24b8e37bd0ef" class="">Brainstorming(28p)</h1><p id="b3458f1a-90ad-4700-8009-b9bdb8898d5a" class="">
+</p><p id="497c66da-0eb0-4b4d-b194-fa15ccb91168" class="">브레인스토밍을 하는 이유</p><ul id="845401c9-c2dd-4bce-969e-b4e04807490d" class="bulleted-list"><li style="list-style-type:disc">펜과 종이를 가지고 앉아있는 것만으로는 만들어낼 수 없는 많은 아이디어를 생각 해낼 수있는 좋은 방법</li></ul><ul id="5dc3ca63-c05a-40d1-80cc-116737129729" class="bulleted-list"><li style="list-style-type:disc">목적 → 서로 참여하고, 듣고, 다른 아이디어를 구축하는 그룹의 집단적 사고 활용</li></ul><ul id="115b28b8-bc7b-435e-8eba-59335ae4e8f2" class="bulleted-list"><li style="list-style-type:disc">뚜렷한 시간 segment 생성 → 의도적으로 뇌의 생산적인 부분을 turn up, 평가적안 부분을 turn down</li></ul><ul id="7b59cd09-34b0-4971-8a72-3ac34721cc08" class="bulleted-list"><li style="list-style-type:disc">브레인스토밍은 design process 전반에 사용될 수 있음 → 1. design solution을 생각해내기 위해  2. project와 관련된 ideas를 떠올리기 위해</li></ul><p id="d351933f-81c8-46ba-8add-e494eedbdff5" class="">
+</p><p id="641d7267-bf51-42fd-92ba-d3d324bb5447" class="">
+</p><p id="1dde6d30-a5c1-46ec-b8e4-c9af6cb9f8a2" class="">브레인스토밍을 하는 방법</p><p id="d08fb6a4-fd5c-44e7-b2ea-dbc768c58e60" class="">
+</p><ul id="267af5f1-fc8f-4761-8f8d-850d6368b31f" class="bulleted-list"><li style="list-style-type:disc">&quot;Brainstorm mode&quot; - 일정 기간 따로 시간 설정해야 함.</li></ul><ul id="efd5a098-8c61-4fc0-83fd-0369b4b7de2e" class="bulleted-list"><li style="list-style-type:disc">짧은 시간 동안 에너지를 투입 (15분 / 30분) → 높은 참여도</li></ul><ul id="ac7dc926-46fb-4b63-871c-cc20c6bf5ee3" class="bulleted-list"><li style="list-style-type:disc">모든 팀원이 화이트 보드 앞이나 테이블 주위에 서거나 똑바로 앉는 자세를 취하고 가까이 모여야 함.</li></ul><ul id="8c9d1bf2-edad-4ed4-a04f-b66bd212fb05" class="bulleted-list"><li style="list-style-type:disc">브레인스토밍하는 것을 명확하게 적는다</li></ul><ul id="402bd5e0-53d5-478e-8d65-b399ef942858" class="bulleted-list"><li style="list-style-type:disc">HMW questions을 활용한다</li></ul><p id="744d2c3a-29aa-40a6-81cf-713af4095b45" class="">
+</p><p id="84fc7711-96ef-48e0-865d-0e99f93ad89e" class="">브레인스토밍을 할 때 아이디어를 기록하는 2가지 방법 </p><ol type="1" id="3cc22447-83cd-4bc4-8058-da2f6604b27f" class="numbered-list" start="1"><li>Scribe : 팀원이 내는 아이디어를 보드에 읽기 쉽고 시각적으로 기록. 각 아이디어에 대한 자신의 감정에 관계없이 모든 아이디어를 기록해야함.  </li></ol><ol type="1" id="0fb88913-5c01-4f4c-b46d-00f0511aaca8" class="numbered-list" start="2"><li>All-in : 각 팀원은 각자의 아이디어를 적어두고, 말로 설명하여 그룹과 아이디어 공유. 아이디어를 적은 뒤 보드에 붙일 수 있도록 포스트잇을 사용하는게 좋음.</li></ol><p id="71652725-b406-4f7e-96d6-6894428b4183" class="">
+</p><p id="e882bc9e-6aa1-4b83-aa1c-53dcd0cb08b1" class="">
+</p><h1 id="22175118-7934-486e-830b-fef53cf37f4b" class="">Facilitate a Brainstorm(29p)</h1><p id="6cdf6c93-8452-46cf-85bb-ea53db43a8db" class="">
+</p><p id="01c3c54c-453c-486e-927f-8a1692ff02cf" class="">
+</p><p id="59fc9ecd-ea04-4645-8ac8-e5aacc8181a7" class=""><strong>브레인스토밍을 활성화 시켜야 하는 이유</strong></p><p id="f0008822-d834-45b8-a41d-d64230a72139" class="">좋은 facilitation은 많은, 넓은 범위의, 다양한 idea를 창출해내는 생산적인 브레인 스토밍으로 이어짐. </p><p id="0b6cb7a0-76a3-4ef3-999c-9104b0aea968" class="">
+</p><p id="ecf099d3-0f64-4bc4-87c7-130a2b009d5d" class=""><strong>브레인스토밍을 활성화시킬 수 있는 방법 (As facilitator, what should we do to facilitate a brainstorm?)</strong></p><ul id="1174d83e-5b0f-46ba-8fec-267cf1028cb0" class="bulleted-list"><li style="list-style-type:disc">Energy : 그룹의 에너지를 유지시켜야 한다. 만약 브레인스토밍 과정의 속도가 느려지거나 문제에 직면하여 앞으로 나아가지 못할 때는→ Adjustment. 그룹이 다른 방향으로 생각할 수 있도록  HMW questions에 변형을 만들고 (HMW 옵션을 미리 준비해와야 함), 팀에 활력을 불어 넣을 몇 가지 도발적인 아이디어를 제공</li></ul><ul id="9854f194-e93e-47b1-bb63-b312c111190b" class="bulleted-list"><li style="list-style-type:disc">Constraints : HMW questions에 제약을 추가함으로써 새로운 아이디어를 창출해낼 수있다. &quot;슈퍼맨이라면 어떻게 할까?&quot;, &quot;100년 전 기술을 가지고는 어떻게 디자인할 수 있을까?&quot;와같은 process constraints 생상. 각 HMW question에 대해 시간 제한을 만들 수 도 있음. (20분동안 50개 아이디어 내기 등)</li></ul><ul id="c15071b8-920f-49a3-b08c-c0445f35276d" class="bulleted-list"><li style="list-style-type:disc">Space : 브레인스토밍을 하는 장소도 무척 중요하다. 하는 장소에 충분히 글을 쓸 수 있는 vertical 영역이 존재해야 한다. 이는 그룹이 많은 잠재적 솔루션을 생성 할 수 있도록 허용함.</li></ul><p id="200ec9de-7e8f-4436-84b8-33925404edd1" class="">       장소가 너무 크면 사람들이 removed 되었다는 느낌을 받을 수 있고, 너무 작으면 각자 충분한 공간을 갖기 힘들기 때문에 이 장단점 사이의 균형을 잘 맞춰야 함. </p><p id="61166950-076c-46c9-b964-86775a6ee941" class="">그룹의 모든 구성원이 할 수 있어야 함. 모두가 두 발자국 안에 보드에 도달할 수 있어야 하며 모든 사람은 scribe가 브레인스토밍의 페이스를 keep up 하지 못할 때 자신의 아이디어를 보드에 각자 추가할 수 있도록 포스트잇과 마커를 가지고 있어야 한다.</p><p id="9ef34d97-9e42-479b-935b-37a92f101149" class="">
+</p><p id="f7720be4-7c02-42bb-9524-c24acd75c3f0" class="">
+</p><p id="22d4f6d6-6ced-4481-b1fe-e019f1d34803" class="">
+</p><h3 id="3c719b71-449b-481d-ae4c-d9f737b6fabd" class="block-color-yellow_background">IDEO (2014) Brainstorm New Solutions. In Human-Centered Design Toolkit. Create (p79-p111)</h3><p id="2d8030c7-c84a-4031-acd8-a64e2b848548" class="">Create Phase의 목표</p><ul id="76d88eda-03f4-45e3-9714-ca1e5b5e6795" class="bulleted-list"><li style="list-style-type:disc">Making sense of data (데이터를 이해하는 것)</li></ul><ul id="a0f58537-2b4f-4928-b1bf-a2d47072122d" class="bulleted-list"><li style="list-style-type:disc">Identifying patterns (패턴을 찾는 것)</li></ul><ul id="7891b9b4-c2e7-4ec5-8f93-30b5e71e4e42" class="bulleted-list"><li style="list-style-type:disc">Defining Opportunities (기회를 정의하는 것)</li></ul><ul id="35c5a644-39df-4939-8535-d9823df417d5" class="bulleted-list"><li style="list-style-type:disc">Creating Solutions (해결책을 만드는 것) </li></ul><p id="ce18be22-fab7-4baf-a897-2a2556507a0e" class="">
+</p><p id="fe9552b0-67d4-484c-8a65-581e4ee43b73" class="">Create Phase의 4가지 중요한 활동</p><ul id="5897db81-910c-474d-90b7-786b272d037a" class="bulleted-list"><li style="list-style-type:disc">Synthesis - 관찰 단계에서 보고 들은 것들을 이해하는  단계. 새로운 관점을 갖게 해주며 혁신의 기회를 찾을 수 있음. </li></ul><ul id="19cb550b-5be6-4486-8b26-70d8a1dc69ef" class="bulleted-list"><li style="list-style-type:disc">Brainstorming - 생각을 확장하도록 도와주는 단계. </li></ul><ul id="e9f3332f-201e-4185-9ba4-b224cfc04d97" class="bulleted-list"><li style="list-style-type:disc">Prototyping - 빠르고 적은 예산(노력)으로 해결책을 눈에 보이도록 만드는 단계.</li></ul><ul id="c7cdfa5e-46c5-45e2-916f-df52ee105b34" class="bulleted-list"><li style="list-style-type:disc">Feedback - 더욱 강력한 해결책을 만들기 위한 필수적인 단계.</li></ul><p id="4bb83f5f-15d1-4b48-962c-bdd8e501baf3" class="">
+</p><p id="631b6f2b-f7eb-450c-afba-e91ee044a502" class=""><strong>STEP 1 : Develop the approach</strong></p><p id="42701ce1-beea-443a-82fa-4dcd4d70f954" class="">제일 보편적인 방법은 &#x27;participatory approaches&#x27;, &#x27;empathic approaches&#x27;가 있음.</p><ul id="ca307852-a61c-4398-a784-533a6abd1ea3" class="toggle"><li><details open=""><summary>Participatory Co-Design </summary><ul id="fcd79f58-4eb5-4e9d-ba89-54e8c1b8e3af" class="bulleted-list"><li style="list-style-type:disc">디자인 과정에서 Co-Designer을 두는 방법</li></ul><p id="e2c55499-9773-4e8d-9dc5-bc58465574b9" class="">
+</p><p id="6b3ea285-59f2-4b5a-8123-d37f04b8acd1" class="">Participatory Co-Design이 필요한 경우</p><ul id="373ba8a6-0ae0-4fa4-9bfc-d47167aeb807" class="bulleted-list"><li style="list-style-type:disc">지역의 전문가와 지식이 많이 필요한 경우</li></ul><ul id="f749f000-4e41-42b2-9062-e49f324fa46c" class="bulleted-list"><li style="list-style-type:disc">&quot;외부&quot;의 해결책이 쉽게 받아 들여지지 않는 경우</li></ul><ul id="f3173144-151c-477f-882d-c395eb7d67c8" class="bulleted-list"><li style="list-style-type:disc">지역 사회의 정책이 필요로 하는 경우</li></ul><p id="e0d6ed19-60d1-492a-961c-d2e785b65a3c" class="">
+</p><p id="a7d3532c-d517-4c67-9d57-ee1c6f340fdc" class="">(Participatory Co-Design의 CASE STUDY) : </p><ul id="5ee68e57-7948-4885-adad-87a65fa04492" class="bulleted-list"><li style="list-style-type:disc">주제 - NGO와 디자이너가 지역 방직공들의 방직물을 더 효과적으로 마케팅 하고 매출을 높이는 방법에 대한 연구.</li></ul><ul id="a17723de-9d05-4c3b-984b-85c5c71cf736" class="bulleted-list"><li style="list-style-type:disc">Co-Designer - 지역의 방직공들</li></ul><ul id="ae6ef6c5-f978-4fb5-ba15-cb1f5d2cd1e3" class="bulleted-list"><li style="list-style-type:disc">방법 - 해당 지역 방직물들의 차별점을 찾기 위해, 지역의 방직공들에게 방직의 과정을 그림으로 그리도록 요구 → 이를 바탕으로 차별점 도출 → 차별점을 극대화 하여 로고 제작</li></ul></details></li></ul><ul id="87db9774-d435-41aa-aed6-d5dbd1883490" class="toggle"><li><details open=""><summary>Empathic Design</summary><ul id="45c85818-83be-4cb4-93ef-b4d10583b3fe" class="bulleted-list"><li style="list-style-type:disc">해결이 필요한 문제와 유저의 실상을 깊이 이해하고 디자인 하는 방법</li></ul><p id="205f363f-132b-45ee-8ecc-acf79ed76c99" class="">
+</p><p id="2d75df5f-11d5-4452-938b-a21697ae0567" class="">Empathic Design이 필요한 경우</p><ul id="df4d0a16-b7c4-4b8a-8b35-540d3535fa65" class="bulleted-list"><li style="list-style-type:disc">디자인팀이 해결책을 발전시키기 위해 필요한 특정한 스킬을 갖고 있는 경우</li></ul><ul id="7c3b9301-de96-4ee8-9662-492138569134" class="bulleted-list"><li style="list-style-type:disc">찾고자 하는 해결책이 &quot;세상에 새로운 것&quot;일 경우</li></ul><ul id="434316bc-c515-4a18-9418-d7f0c3a46a72" class="bulleted-list"><li style="list-style-type:disc">지역 사회의 정책이 소수의 인원과 같이 일하게 하는 것을 어렵게 하는 경우</li></ul><p id="6f215979-eb19-4c64-983e-61427589421c" class="">
+</p><p id="60a6245e-3d82-499b-a54a-ba7944bf530e" class="">(Empathic Design의 CASE STUDY) :</p><ul id="267933db-ef06-4df7-9a00-f253e6e88e58" class="bulleted-list"><li style="list-style-type:disc">주제 - 인도 마을 아이들의 눈 관리를 도와주는 방법</li></ul><ul id="bfc48eb5-c7ed-471b-bd66-2e8f9c53fa3b" class="bulleted-list"><li style="list-style-type:disc">방법 - 현장 조사, 전문가 인터뷰, 수 차례의 프로토타입 검증, 자신의 어린 시절 회고 등을 통해 어린 아이들의 입장에서 생각해보기 위해 노력함.</li></ul></details></li></ul><p id="a53b6ff0-5db9-435a-9b63-129cea93728a" class="">
+</p><p id="304c1037-a11d-4992-8c95-ed5bfbfd8a2a" class=""><strong>STEP 2 : Share Stories</strong></p><ul id="136c4e14-38a7-435a-9337-589fad30bdd4" class="bulleted-list"><li style="list-style-type:disc">리서치 과정에서 들은 이야기들을 데이터와 정보로 변환시키는 과정. 구체적인 세부 사항들을 제공해 줌으로써 특정한 문제에 대한 해결책을 상상하는 것을 도움. </li></ul><p id="3b6d56e3-7f1f-4e4f-a457-75af496f33ba" class="">TIP </p><ol type="1" id="2ca235c7-26d0-4d8a-98b9-efdafa6c92d6" class="numbered-list" start="1"><li>디테일을 살리기 위해 리서치 직후에 이야기를 공유하는 것이 베스트! 기억하기 쉽게 포스트잇에 짧게 노트하는 것이 포인트. (Be Specific / Be Descriptive / Follow Reporting Rules)</li></ol><ol type="1" id="c5e9319f-d560-413e-a929-486a2f9bea27" class="numbered-list" start="2"><li>일반화, 예측, 가설 세우기, 판단하기 등은 피해야 함.</li></ol><ol type="1" id="3d3e893f-17ed-4a4f-8368-2f8875579fdd" class="numbered-list" start="3"><li>이야기를 공유한 후 기회와 해결책으로 바뀌도록 유도해야 함.</li></ol><p id="690c41b3-c1e7-442f-963d-fa03f81906ef" class="">
+</p><p id="07580eb7-db5b-4828-b293-4cc64ccddd2c" class=""><strong>STEP 3 : Identify Patterns</strong></p><ul id="75ac6425-47c9-4550-8777-c332854f495d" class="bulleted-list"><li style="list-style-type:disc">데이터 사이의 연결성을 찾고 패턴을 발견하는 것은 해결책을 빨리 찾는데 도움이 됨</li></ul><ul id="6eb6aa39-423c-4a93-be67-a3fa269501de" class="toggle"><li><details open=""><summary>Extract Key Insights</summary><ul id="1c306a30-0b15-4ce7-acdc-314b0b15f7a8" class="bulleted-list"><li style="list-style-type:disc">인사이트를 찾는 과정은 이전에 숨겨져 있던 의미를 뚜렷하고 명확하게 만들어 주는 과정</li></ul><p id="4df53bd8-cdee-48c2-b8af-3d99c5b17e6a" class="">TIP</p><ol type="1" id="bc503cd3-4dd0-4211-b9fe-194ebbb715bf" class="numbered-list" start="1"><li>중요한 정보를 선택하기</li></ol><ol type="1" id="f2128b96-863c-4a40-8c3c-cc8cbcd90ead" class="numbered-list" start="2"><li>정보들을 종합하기</li></ol><ol type="1" id="8c41b72c-4885-4cc9-98dc-4e504f17ad4f" class="numbered-list" start="3"><li>인사이트들이 같은 층위에 있는지 확인하기 </li></ol></details></li></ul><ul id="1499a677-04ac-41b4-8eb5-92926383bb2d" class="toggle"><li><details open=""><summary>Find Themes</summary><ul id="ec4c4f7b-8fc2-4b84-88ea-d63fdcb83610" class="bulleted-list"><li style="list-style-type:disc">정보들 간의 공통점, 차별점, 관계를 찾는 과정</li></ul><p id="3c666149-49ff-402a-b300-b6eb91036bf2" class="">방법</p><ul id="1b16ffc7-b42e-4731-9d46-938dd2578ebf" class="bulleted-list"><li style="list-style-type:disc">카테고리에 따라 발견한 내용들을 정리할 것</li></ul><ul id="441e8fe5-f5bf-40fe-ab71-9fc5bb2e6be9" class="bulleted-list"><li style="list-style-type:disc">카테고리 간의 관계에 유의할 것</li></ul><ul id="121f21fd-abd9-4cc1-b616-97135489bb8d" class="bulleted-list"><li style="list-style-type:disc">그룹 - 재그룹의 과정을 거치기</li></ul><p id="94788ff9-868c-425a-9a78-cefd547052b5" class="">TIP</p><ol type="1" id="43575d2a-2b11-4488-b58f-6d634e9310b6" class="numbered-list" start="1"><li>카테고리 분류 과정을 팀과 함께 진행</li></ol><ol type="1" id="53a91b9e-94fc-497c-9a6e-11bde4d63174" class="numbered-list" start="2"><li>팀이 모두 만족할 때까지 계속해서 그룹핑 진행</li></ol><ol type="1" id="1d46a521-e3dc-4b5e-a248-b8363a1b4440" class="numbered-list" start="3"><li>너무 많은 정보가 포함되는 상위 그룹의 경우, 하위 그룹으로 더 쪼개기</li></ol></details></li></ul><ul id="fe09e56d-b0bc-442a-970b-bc4a043ff23e" class="toggle"><li><details open=""><summary>Create Frameworks</summary><ul id="3ffa8fc9-0287-42ef-8edd-948e808f1ef4" class="bulleted-list"><li style="list-style-type:disc">수집한 정보들을 문맥에 맞게 프레임워크에 집어넣는 과정. 이를 통해 정보들간의 관계를 더욱 명확히 파악할 수 있음</li></ul><p id="0d7eb55d-4b03-48ae-9986-bf5015e0accb" class="">프레임워크 예시 4가지 → 리딩 자료에 사진 있음</p></details></li></ul><p id="fea144f3-b537-466e-9de0-304dbf2668eb" class="">
+</p><p id="54b8b23e-ece5-44f9-aead-2f6f9dea0d78" class=""><strong>STEP 4 : Create Opportunity Areas</strong></p><ul id="5efd676b-8af9-4c32-8de4-e0da591edb65" class="bulleted-list"><li style="list-style-type:disc">&quot;How might we...?&quot;질문과 함께 여러 해결책을 제안하는 과정</li></ul><p id="0e3186e5-2d94-4a0b-83ce-4dd7210fda5b" class="">TIP</p><ol type="1" id="0bfd1055-39e9-468a-8d9c-b55f119a0634" class="numbered-list" start="1"><li>&quot;HMW&quot;로 문장 시작하기</li></ol><ol type="1" id="f57a949b-397f-4f6e-bc43-1044f320aa7c" class="numbered-list" start="2"><li>다양한 색의 포스트잇 사용하기</li></ol><ol type="1" id="0aa981c9-73af-46f7-a03c-6d1f7f676176" class="numbered-list" start="3"><li>Quality &lt; Quantity</li></ol><ol type="1" id="9a55809d-7cf9-4172-a2c2-796ddc7d0ef7" class="numbered-list" start="4"><li>Desirability &gt; Feasibility</li></ol><p id="0ae9a755-1a5a-4435-b499-e7a60a45e425" class="">
+</p><p id="20ddb945-dab1-4360-a28e-e8c14854196e" class=""><strong>STEP 5 : Brainstorm new solutions</strong></p><ul id="5efde34e-a764-482f-b5de-f9d525cbd931" class="bulleted-list"><li style="list-style-type:disc">사고를 확장시키는 과정. 3가지의 진정한 해결책을 찾기 위해서는 100가지의 아이디어가 필요함.</li></ul><p id="216e675b-f902-4dd2-b88c-3de7a2079fbf" class="">TIP - 7가지 Brainstorming 기법</p><ol type="1" id="1accd592-acb2-4acb-992d-e48dea5d64a5" class="numbered-list" start="1"><li>판단 미루기</li></ol><ol type="1" id="b1115e55-921c-41b2-bc4c-47cc59b659b0" class="numbered-list" start="2"><li>&#x27;wild idea&#x27;도 권장하기</li></ol><ol type="1" id="95b48c0b-51fe-429f-94ff-cadae1eb7eaf" class="numbered-list" start="3"><li>다른 사람들의 아이디어를 바탕으로 새로운 아이디어 제시</li></ol><ol type="1" id="8cb0e055-fb39-406c-829a-62f66d1879ee" class="numbered-list" start="4"><li>주제에 집중하기</li></ol><ol type="1" id="f5ca109e-7cdc-4dab-808b-33b74bc4a793" class="numbered-list" start="5"><li>논리적, 창의적</li></ol><ol type="1" id="0137ea25-8841-4ea9-9c48-d809d556111a" class="numbered-list" start="6"><li>최대한 많은 아이디어 도출하기. </li></ol><p id="67f49b8b-b699-446d-972e-d46d9ea16f3c" class="">
+</p><p id="b76991c5-e703-4e4b-95c2-44aaa7ca6d2d" class=""><strong>STEP 6 : Make Ideas Real</strong></p><ul id="1c5394db-2c5b-4e5e-b9b9-4f85f801bf91" class="bulleted-list"><li style="list-style-type:disc">다른 사람들이 테스트 해볼 수 있도록 프로토타입을 만드는 과정. 아이디어를 검증 받고, 더 많은 아이디어를 도출하기 위함. </li></ul><ul id="465b142a-c9ab-4ef1-a682-3323651e8379" class="bulleted-list"><li style="list-style-type:disc">ROUGH, RAPID, RIGHT</li></ul><ul id="dd41c750-f570-439a-bf3b-a18702538c5f" class="bulleted-list"><li style="list-style-type:disc">아이디어가 어떤 의미를 갖는지 깊이 이해하고, 팀이 대답해야 할 질문을 찾기 위해 프로토타입 진행.</li></ul><ul id="57c45502-3e9d-48d6-a5c4-383977fdef8c" class="bulleted-list"><li style="list-style-type:disc">Common Prototype forms → 리딩에 사진 있음</li></ul><p id="69de7f64-ad34-44e4-8689-8af33e9a0e2d" class="">Models / 스토리보드 / 롤플레이 / 다이어그램</p><p id="fb54275d-2109-4aea-b64d-2cbd2ac3a09b" class="">
+</p><p id="4cec0940-b902-4d88-84c4-4984b7e45dfd" class=""><strong>STEP 7 : Gather Feedback</strong></p><ul id="7687c99f-5a1f-4675-a989-fddc32006f62" class="bulleted-list"><li style="list-style-type:disc">피드백 과정에서 하나가 아닌 다양한 프로토타입 결과물을 제공함으로써 사람들이 보다 쉽게 피드백을 하도록 유도</li></ul><ul id="bb802a74-d0ff-49d5-be66-c1b9826c67e4" class="bulleted-list"><li style="list-style-type:disc">새로운 집단 + 기존에 이야기를 나눴던 집단 모두에게 피드백 받기</li></ul><p id="90c5e3cb-9ada-4c9d-94c2-e49d4a8cdb63" class="">TIP</p><ol type="1" id="58582305-ac7f-4808-bc01-95536962ac59" class="numbered-list" start="1"><li>아이디어를 팔려고 하지 말아라 (중립을 지켜라)</li></ol><ol type="1" id="17c62b3b-0de5-42af-889e-7de0efb425bf" class="numbered-list" start="2"><li>피드백 그룹의 크기를 다르게 해라</li></ol><ol type="1" id="54e79d7e-34a3-4244-abad-d3e73e78465f" class="numbered-list" start="3"><li>공통적으로 문제가 된다고 언급되는 점은 빨리 고쳐라</li></ol><ol type="1" id="a8cf37ec-bf6c-438c-99db-d26d8a6fb0ca" class="numbered-list" start="4"><li>참여자들의 피드백을 바탕으로 추가적인 아이디어나 크리틱을 받을 수 있는 질문을 해라</li></ol><p id="dabeefd5-6fd0-4712-b8fb-cb6e4ae7c582" class="">
+</p><p id="2e8ddc59-dc2a-4887-a11e-d2809f993870" class="">
+</p></div></article></body></html>

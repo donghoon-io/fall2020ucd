@@ -1,0 +1,673 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>VLOG 분석 결과</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="576144ae-ba99-4187-82aa-0b5509ff386c" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📼</span></div><h1 class="page-title">VLOG 분석 결과</h1></header><div class="page-body"><figure class="block-color-pink_background callout" style="white-space:pre-wrap;display:flex" id="bf6cdbfb-a4b4-42d4-8b0e-ee83ffacb3fd"><div style="font-size:1.5em"><span class="icon">🌕</span></div><div style="width:100%">브이로그 분석을 통해 찾을 수 있었던 RQ에 대한 답변들!</div></figure><p id="a1c9124d-85ff-401b-93ee-f01024a73d3f" class=""><mark class="highlight-orange"><strong> 1. 미국 캘리포니아(UC Berkeley), 대학생</strong></mark></p><p id="7cf1d6bb-8f6f-42e4-aced-a7ac3bbcf4ee" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="42b17a2d-7014-480e-8159-54321e680bef" class="bulleted-list"><li style="list-style-type:disc">4월 8일 수요일
+새벽 4시에 자고 오전 10시에 일어남 - 편집 - 심즈 모바일 게임 - 영화 보면서 엄마랑 피자 먹음(점심) - 영어 논술 과외 (스카이프) - 낮잠 잠 - 초코케이크 먹음(오후 4시) - 편집 - 과일 요거트 볼, 파전(저녁) - 과제 업로드 - 홈트(땅끄부부 유튜브 30분) - 샤워 - 휴학 고민을 했으나 버티기로 결정</li></ul><ul id="c8ec72e4-b48b-4904-b37f-be2c2e3019d1" class="bulleted-list"><li style="list-style-type:disc">4월 9일 목요일
+오전 6시 수업(미국 수요일 오후 2시) 엄청 졸려서 고통스러워 함 - Zoom 상에서 Break Room 기능으로 조별 토론도 함 - 교수님 수업하실 땐 카메라 꺼서 졸게 됨 - 오전 9시 수업 끝 - 다시 잠 - 먹고 자고 반복</li></ul><ul id="c5f1d7b3-27d4-48b1-8d73-6ab0443eb8bc" class="bulleted-list"><li style="list-style-type:disc">4월 10일 금요일
+새벽 4시 30분 수업 때 발표 (옷도 정장 입어야 해서 상의만 입고 하의는 수면바지) - 끝내고 다시 잠</li></ul><p id="eff9c5a7-6c53-43e0-bd0c-0bb6d9978fe2" class="">2) 팀플, 과제 등 다른 학생과 커뮤니케이션 경험이 어떻게 되는지? (시간, 팀 구성 방식 등...)</p><ul id="41190224-8cba-48a6-9846-c4c2295f4202" class="bulleted-list"><li style="list-style-type:disc">Zoom 상에서 카메라, 마이크 켜고 토론</li></ul><p id="03fe5a7c-75ae-4fff-b638-80645c80a496" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해주는지? 등)</p><ul id="2dd4a1f9-b9c1-4df1-8c55-26c5b00fd79a" class="bulleted-list"><li style="list-style-type:disc">그냥 관리랄게 없이 먹고 자고 반복</li></ul><ul id="3c882b63-2494-4470-8f7f-7cd603d55231" class="bulleted-list"><li style="list-style-type:disc">실시간 화상 강의가 많아 많이 고려해주는 것 같진 않음</li></ul><p id="d265a062-84ef-45dd-90e8-fedf903b8b2e" class="">5) 수업 외에 일상에서 비중을 두는 여타 활동이 있는지?</p><ul id="dae177de-8931-488a-b2ac-39c5692c1b64" class="bulleted-list"><li style="list-style-type:disc">과외</li></ul><ul id="aa17e72b-f5c3-4641-a6bc-e2ece7dddc14" class="bulleted-list"><li style="list-style-type:disc">개인 공부 (언론 쪽 취업 준비)</li></ul><p id="9e6dd2cc-e887-405d-832e-64235c2497e9" class="">
+</p><p id="c5ea2851-aa78-4a66-bfdc-fdd914702153" class=""><mark class="highlight-orange"><strong>2. 독일, 대학생(피아노 전공)</strong></mark></p><p id="eaadc437-2f0b-4c0a-8300-6f1c8b3c1478" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="3335e982-9396-4468-ab31-b6b88dcadf1d" class="bulleted-list"><li style="list-style-type:disc">새벽 2시 수업(독일 오후 6시)</li></ul><ul id="b5739e65-2818-414d-a590-c6b79aec509f" class="bulleted-list"><li style="list-style-type:disc">다음날 밤 9시 레슨(1시간 반, 매주) - 컴퓨터 소리로는 레슨에 한계가 있음. 손이나 몸을 직접 볼 수도 없고 음질도 안 좋아서. 피곤함. (한국 음대생은 들으면 놀랄 시간대라고 함)</li></ul><ul id="d2d74f48-ae51-4abd-93c7-54f18cf0cdf1" class="bulleted-list"><li style="list-style-type:disc">밤 11시 수업 (카메라, 마이크 on 필수)</li></ul><ul id="dc9242d7-fb1c-4937-a237-5b0713be4146" class="bulleted-list"><li style="list-style-type:disc">저녁 6시 수업 - 유학생들 대상으로 서로 더 친해지고 독일어도 늘자는 취지의 수업. 액티비티를 다양하게 진행하는데 이번엔 캠 켜고 요가를 같이 함..</li></ul><ul id="ce49e12e-2b39-41e6-8e37-b026f9a11f9c" class="bulleted-list"><li style="list-style-type:disc">새벽 2시 수업 - 너무 졸려서 침대에서 들었는데 일어나보니 아침이었고 혼자 줌 회의실에 남아있었다고 함</li></ul><p id="9378d52e-2a5a-433b-8bcc-a603c0e774f3" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="00f28383-2425-48ce-be79-559cbf44162a" class="bulleted-list"><li style="list-style-type:disc">실시간 강의가 대부분인 것 같음</li></ul><p id="e3990995-8052-41ad-a77b-a5aa2766df10" class="">5) 수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? (알바, 과외, 개인 공부 등)</p><ul id="68c40363-45d3-4525-9f05-5000246e6a87" class="bulleted-list"><li style="list-style-type:disc">독일어 학원 다님</li></ul><p id="f8c9ad0b-4da7-48ed-b9a9-be6c71df4b23" class="">
+</p><p id="d261251f-e23f-4e05-a1e0-9bd779c13df7" class=""><mark class="highlight-orange"><strong>3. 미국 시카고, 대학생</strong></mark></p><p id="bb071658-a590-4bca-962a-33eb291b1268" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="1bdb0758-df0b-4877-af73-6a12d3f6179d" class="bulleted-list"><li style="list-style-type:disc">(브이로그 시작) 밤 12시 40분 첫 수업 준비 - &#x27;미디어의 역사&#x27; 수업 시작 - 새벽 1시 40분 수업이 끝난 뒤 교수님께 메일 보냄 - 새벽 3시 &#x27;브랜딩과 팬 형성&#x27; 수업 시작 - 새벽 4시 20분 수업 끝, 잠시 휴식 - 새벽 5시 &#x27;언론 법률과 윤리&#x27; 수업 시작 - 수업 끝 - 취침 (화요일이 제일 수업 많다고 함)</li></ul><ul id="31df107b-bba9-439a-a2fc-729f0afe8572" class="bulleted-list"><li style="list-style-type:disc">수업에 따라 수면 패턴이 달라지는 것 같음. 오전에 일어나는 날도 있는 것으로 미루어 보았을 때..</li></ul><p id="d6b3347a-d57c-41cb-9ccd-e67238bad42f" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="6f04d705-026a-418a-bf3c-ba1e60ae9ed5" class="bulleted-list"><li style="list-style-type:disc">몇몇 교수님들은 다른 나라에서 수업을 듣는 학생들을 양해해 주시기도 한다고 나옴. </li></ul><ul id="cd18eb49-6947-4dcf-b959-e2af4de1e0a5" class="bulleted-list"><li style="list-style-type:disc">메일 쓰는 장면이 나오는데, 메일 내용을 보면 → 시차가 14시간 나기 때문에 실시간 수업을 듣기 어렵기에, 실시간이 아닌 다른 옵션을 제공해 주고, 시차를 이해해 줘서 감사하다~라고 씀</li></ul><ul id="516a1560-945e-469d-b8fe-0bacbec242b2" class="bulleted-list"><li style="list-style-type:disc">하지만 한국은 추석임에도 미국은 아니라 수업을 그대로 진행했다고 함.</li></ul><p id="11f16e42-15ff-48f2-a84a-6f4a89b5fc5e" class="">5) 수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? (알바, 과외, 개인 공부 등)</p><ul id="fd9fd0bd-6cf6-4b1c-917d-ef694e25a22c" class="bulleted-list"><li style="list-style-type:disc">영어 과외, 다음 학기 인턴십을 위한 이력서 작성</li></ul><p id="a5dbd484-ad6d-4eee-925b-bbf58216fd8a" class="">
+</p><p id="fe280498-b875-4f51-8d1e-3da47bbb8367" class="block-color-orange"><strong>4. 미국, 대학원생, 계절학기(여름)</strong></p><p id="3504d739-13b6-4271-bb23-e9c95bdf60c0" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="9ba8a431-5597-4b6c-8400-46491d20a0c6" class="bulleted-list"><li style="list-style-type:disc">(브이로그 시작) 오후 9시 반 기상 - 새벽 5시까지 과제 - 새벽 5~7시 수업 - 7시에 가족들과 아침 먹고 가족들 배웅 - 준비 후 오전 10시 쯤 취침 - 오후 5시 쯤 기상 - 10시까지 카페에서 과제 - 밤 11시에 밥먹기 - 밤 12시에 커피 - 새벽 5시까지 발표 준비 - 새벽 5~7시 수업 - 아침 7시에 수업 끝 (브이로그 끝)</li></ul><ul id="a2f34803-345f-4e37-a989-4f91c83b3ff4" class="bulleted-list"><li style="list-style-type:disc">아침 같이 먹기, 아침에 배웅 해준 뒤 잠 자기, 고3 동생과 새벽에 공부 같이 하기 등을 제외하고는 가족들과의 교류는 딱히 어려워 보이지 않았음</li></ul><p id="843503fd-2bcb-4aea-92ec-0b4d2ff6303e" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="c15e984b-20df-4e26-9155-3cf0a785ddef" class="bulleted-list"><li style="list-style-type:disc">학교에서 시차를 고려해 주지는 않는듯. 그냥 원래 미국 시간에 맞춰서 우리나라 기준 새벽 5~7시에 수업 진행 중. </li></ul><ul id="b5cb2850-ee96-46cd-8c71-a46b7ecb9bda" class="bulleted-list"><li style="list-style-type:disc">대학원생이라 그런지 새벽 5시 수업이라 그런지, 거의 미국 시차로 살아가는 것 같음. 새벽에 수업이 끝나면 밥을 먹고 다시 잠을 자서 저녁 전에 일어나는 생활 패턴. </li></ul><ul id="e83d4f1a-3c8d-49a6-8fc9-815ee6a2ab97" class="bulleted-list"><li style="list-style-type:disc">교수님도 시차를 인지하고 있는 듯 함. 수업을 하기 전에 &quot;오늘따라 주영이의 하늘은 더 어두운 것 같구나~&quot;라고 말하셨고, &quot;발표가 끝나면 곧 밝아질거야~&quot;라고 대답함.</li></ul><p id="c4a99401-9853-4253-a484-c6d70bc75ea4" class="">5) 수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? (알바, 과외, 개인 공부 등)</p><ul id="72d71ba1-3710-4c12-acce-14dfa88fa7a8" class="bulleted-list"><li style="list-style-type:disc">종강 직전이라 그런지... 수업에 올인하는 모습만 나옴.</li></ul><p id="db4aca48-a99c-4820-b816-ee98eb1467b4" class="">
+</p><p id="e38a6070-70dd-4c9f-9a44-ab6859be2d37" class=""><strong><mark class="highlight-orange">5. 캐나다 험버 (토론토), 재학생(신입생)</mark></strong></p><p id="09a0f863-2557-47bf-8ba7-64cf86f90f3d" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류등...)</p><p id="0273ea7d-d3ba-4d0f-8bd2-3d09fbe55cc0" class="">월:공강</p><p id="c29cc743-3c31-49d5-a430-f0c015135774" class="">화: 21:00 ~ 03:20 (수업 세개)</p><p id="95b6b6ac-6569-4d50-a106-64452ac9b43d" class="">수: 10:50 ~23:40, 05:15~06:05 수업 (중간에 잠)</p><p id="7340ac67-ef1c-4132-9352-763417a96be6" class="">목: 02:30~03:20, 05:15~06:05 수업</p><p id="f51c592d-9ceb-4680-b04b-a0ece6169a40" class="">금 : 21:00~22:45 수업 / 과제 많음</p><p id="6667cec2-ea29-4f7e-af00-7503c179c865" class="">실시간 수업 / 녹강 병행</p><p id="8326f95f-c77a-4142-9d10-d76bc9075f47" class="">수업 중간중간 쪽잠</p><p id="d8e78af0-7dc6-40db-b3a1-5b44ad165cf7" class="">과제가 많을 땐 주말에 과제</p><p id="d04b841b-b856-4463-a0d1-cff25e2c8fc7" class="">대체로 한국 시간에 맞추어 생활하려고 하는 듯 하나, 쪽잠을 자거나 과제 때문에 밤을 새는 경우가 잦은듯 함</p><p id="87df5fcd-ff3b-4b15-9f5e-90fbf5eec2a0" class="">2) 팀플, 과제 등 다른 학생과 커뮤니케이션 경험이 어떻게 되는지? (시간, 팀 구성 방식 등...)</p><p id="41574a32-cce1-4fd3-b701-2aabb3a085e0" class="">같은 과 학생들과는 단체 채팅으로 교류(왓츠앱)</p><p id="8edaae95-7753-42ec-b00a-cd63e30dd021" class="">팀플 : 조가 안좋게 구성돼서 팀플을 제대로 못했음(시간 때문인 것 같지는 않음)</p><p id="48f72f51-b115-4d31-9e64-6c298defae52" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><p id="f5a51b64-4a1a-4e0c-bdac-c2fd51d05440" class="">시차가 13시간으로 거의 정반대인데, 실시간 강의를 들어야 해서 생활패턴이 완전히 망가짐.</p><p id="e607719b-c674-483e-8e0d-c72a5efb9c90" class="">과제 : 그날 해야하는 일 메모에 적어놓고 관리</p><p id="c5a456b6-a669-4d0a-a831-77fcbee138fb" class="">5) 수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? (알바, 과외, 개인 공부 등)</p><p id="4c5d2ef7-9d88-46f7-abf3-8986d2e0d6ec" class="">멀티미디어디자인 전공이다보니 어도비 프로그램 공부 필요. 강의를 듣는 등 공부를 함</p><p id="5bc98fdb-1489-42d0-a558-a6bcacf78881" class="">
+</p><p id="542a6def-78e9-440d-87ee-a3673c38a60a" class=""><mark class="highlight-orange"><strong>6. 미국 대학 재학생</strong></mark></p><p id="20929dd0-aee8-46aa-b2e1-43bbbf633e48" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류등...)</p><p id="ef33fe82-a693-450f-8b1d-6cb9b9d70f6e" class="">월:공강</p><p id="e1927ea4-5b6e-4110-8eba-b33adac8727a" class="">화: 00:25 ~ 02:20 (수업 2개 연강)</p><p id="66241f9b-ec5a-4515-9f66-011dd004f2d5" class="">아침에 운동(3시간 취침)</p><p id="e2ef18a7-0340-4b80-a604-f10c0e8d83d0" class="">수: 03:00 수업, 06:00-11:00 취침</p><p id="73d29011-081b-48aa-ac94-eb047075ad0b" class="">주로 수업이 새벽에 시작</p><p id="2a08ff22-a53f-41b6-b5b3-f3110edfce2d" class="">수업 마친 후에도 새벽에 과제를 하기도 함</p><p id="e86e9991-00b4-476e-b686-4527a3533a6b" class="">한국 친구와 거의 매일 낮 동안에 만나고, 함께 공부를 하기도 함(고등학교를 한국에서 나와 한국에도 친구가 꽤 있을 듯)</p><p id="baeb987b-2bed-4d9c-af1f-aacf3164f65b" class="">잠을 제때 못 자서 수면 시간이 매우 부족하다고 함(비타민 주사를 맞으러 가는 것을 고려할 정도..)</p><p id="ea216304-c6f5-447b-bb85-d28831d086b1" class="">따로 잠을 보충하는 시간은 없는 듯. 새벽에 강의 및 과제 등을 하고, 4시간정도(주로 늦은새벽~늦은아침 정도 시간대) 잠을 잔 뒤 한국 시간에 맞춰 낮 동안에도 과제 등 활동을 함.</p><p id="ca75d317-9eff-4c67-92ed-9ccfa093c83a" class="">점심/저녁을 한국 시간에 맞추어 먹음</p><p id="398d231c-c8e4-4cf7-8015-86f03d04dc3c" class="">2) 팀플, 과제 등 다른 학생과 커뮤니케이션 경험이 어떻게 되는지? (시간, 팀 구성 방식 등...)</p><p id="6bd4c25f-3537-4fcd-aba2-9b643986d0e9" class="">팀플이 총 3개</p><p id="6f80469e-62a6-4ae7-b3bd-9938056b7275" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><p id="b2376417-8235-4a14-932d-a4ef5577ed08" class="">수면 부족으로 인한 피로 누적의 문제</p><p id="1d214aab-8203-464a-a4c2-b701b7b551e4" class="">교수님들이 힘든 사항 등에 대해 언제든 연락을 달라고 하거나 격려하는 등 유학생의 사정을 이해를 해주려 노력하는 듯함(그외 직접적인 고려나 도움은 영상에 나오지 않음)</p><p id="2b5208b2-a851-47ad-be71-54fae8a02dbf" class="">+) 온라인으로 수업을 하니 동기부여가 안되는 느낌</p><p id="c6b890ee-f473-4ac1-96be-ffe62ca9c701" class="">
+</p><p id="dc776f84-89e8-4c45-ad11-1e923af3f357" class=""><mark class="highlight-orange"><strong>7. 미국 캘리포니아(UC Berkeley), 교환학생 (=1)</strong></mark></p><p id="13292313-4ff1-4762-bad3-d0e4160f5fab" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="e8e06a3c-0530-4447-8c8e-0b49daed997b" class="bulleted-list"><li style="list-style-type:disc">4월 30일
+시험1) 오후 2시부터 하루동안 시험문제를 열어둠. 파일을 다운 받는 순간부터 3시간 카운트다운이 시작됨. 오픈북.</li></ul><ul id="81a5ecb0-009b-4f0a-98c5-9170cb7e9542" class="bulleted-list"><li style="list-style-type:disc">시험2) 기간 넉넉히 주고 8-9장 레포트 쓰기 (기말과제 같은 느낌)</li></ul><ul id="205e691a-9f75-49e4-992f-803f2265d1d4" class="bulleted-list"><li style="list-style-type:disc">5월 15일
+시험3) 오전 7시 실시간 시험 (미국 5월 14일 오후 3시)
+까먹고 시험 못 볼 뻔 했는데 시리가 일정 보고 알람 제안해서 다행히 시험을 안 까먹고 알람 설정해서 일어남. 오픈북.</li></ul><p id="df7e50c7-c35d-4b78-a8b4-e0db2c5c66db" class="">
+</p><p id="12096c8f-fa23-40b3-afc5-3c8137ee9fa2" class=""><mark class="highlight-orange"><strong>8. 홍콩, 대학생</strong></mark></p><p id="dd862fd1-1e41-410e-b0b2-2a541a27e849" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="88e33a9c-fdcf-4caf-a7db-6ce92edb7ce7" class="bulleted-list"><li style="list-style-type:disc">홍콩과의 시차는 1시간 밖에 안나는 관계로, 한국에서 비대면 강의를 듣는 다른 학생들과 하루 일과가 거의 같음.</li></ul><ul id="2a89484a-95f5-4206-b7ed-b1756c0e69c6" class="bulleted-list"><li style="list-style-type:disc">아침 10시 기상 - 아침 먹기 - 오전 11시 반 수업 - 프린트하러 집 앞 스터디 카페 가기 - 과제 - 낮잠(4시간) - 넷플릭스 보면서 저녁(?) 먹기</li></ul><p id="60599354-3160-4c94-811a-0d64b8088887" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="32e2b74c-bdf9-4d88-a7d7-f97e3709b043" class="bulleted-list"><li style="list-style-type:disc">시차가 1시간 밖에 안 나기 딱히 관리라고 할 것이 없어 보임</li></ul><p id="5ce519f5-6c45-4b33-af92-b6aceed17fb5" class=""> </p><p id="f9a3d576-7c66-4b30-b73a-7e60a781d624" class=""><strong><mark class="highlight-orange">9. 미국, 대학생(새내기)</mark></strong></p><p id="15b7e88f-b785-40cb-a5aa-26fc7caf7ac8" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="f7e7cbbe-78e1-4577-8b02-b87b7a8867ee" class="bulleted-list"><li style="list-style-type:disc">개강 첫날, 시차 13시간. 어느정도 밤낮이 뒤집힌 상태로 생활 중.</li></ul><ul id="b3de0a70-795f-4a1b-ac18-71d198235989" class="bulleted-list"><li style="list-style-type:disc">오후 11시 20분 첫번째 강의(실강) - 오전 5시 취침 -  오후 12시 기상 - 운동 - 샤워 - 두번째 강의 녹화본 시청 - 강의 내용 정리 및 과제 - 오후 9시 첫번째 강의 과제 - 오후 11시 세번째 강의(실강)</li></ul><p id="11c7c4d4-bd8b-462c-89d6-315b746b192b" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="069b3a13-82d3-480b-ba01-468fbebc9e27" class="bulleted-list"><li style="list-style-type:disc">하루 계획표 미리 작성</li></ul><ul id="259f622c-ed65-4bc5-a55c-2d26a2eff7ae" class="bulleted-list"><li style="list-style-type:disc">개강 첫주라 모든 강의를 실시간으로 듣고 싶었으나 오전 5시에 시작해서 7시에 끝나는 강의를 듣기에는 무리라고 판단하고 녹화본 시청</li></ul><ul id="2d2cca4e-24f1-43ee-9b96-f5dac398f66e" class="bulleted-list"><li style="list-style-type:disc">학교에서 강의 녹화본 제공</li></ul><p id="85d4397e-cb65-4814-9836-712c9c246e56" class="">
+</p><p id="405f65e4-464e-4658-b291-1f4b17744047" class=""><mark class="highlight-orange"><strong>10. 프랑스, 대학생</strong></mark></p><p id="2a024a14-a369-4f99-a33f-1533d02af757" class=""><mark class="highlight-yellow">EP 25</mark></p><p id="dc05db36-2c3b-42f5-88ef-4f26816ca157" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="94735ac8-ff32-48ed-83d9-86585712cf68" class="bulleted-list"><li style="list-style-type:disc">특별한 언급은 없으며 자가격리 중 아침을 챙겨먹었다는 내용이 있는 것으로 보아 한국 시간에 맞추어 생활하며 저녁에 수업/시험 등을 하는 듯</li></ul><p id="b6f455a8-4441-4a1c-8560-3bea307b96b3" class="">2) 팀플, 과제 등 다른 학생과 커뮤니케이션 경험이 어떻게 되는지? (시간, 팀 구성 방식 등...)</p><ul id="680725d9-21fb-44af-9770-eedad858bdc7" class="bulleted-list"><li style="list-style-type:disc">교수님, 팀원들과 zoom으로 팀플 회의</li></ul><ul id="0f0fa521-23f6-4cec-980f-2b79af453da8" class="bulleted-list"><li style="list-style-type:disc">코로나로 진행하지 않은 실험 레포트 쓰기 - 팀원과 zoom 으로 반씩 나누어 작성</li></ul><p id="88c37ba0-af7f-44d4-be50-371b057859ac" class="">3) 시차로 인한 생활 관리를 어떻게 하고 있는지? (어려움이 있는지? 학교 측에서 시차를 고려해 주는지? 등)</p><ul id="6bc4893d-e71e-4fdc-bcc0-c4061c58b323" class="bulleted-list"><li style="list-style-type:disc">노트북 시간을 프랑스 시간으로 설정해둠</li></ul><p id="7be291fa-5a72-443b-8d0a-05968c5d22cc" class=""><mark class="highlight-yellow">EP 26</mark></p><p id="7c8e3e78-2c6b-47eb-aad7-117f0bd52edb" class="">1) 수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가? (잠은 충분히 자는지, 수면 패턴이 어떤지, 다른 사람들과의 교류 등...)</p><ul id="7709a274-8b05-4d06-9151-22a9bcf19cde" class="bulleted-list"><li style="list-style-type:disc">아침/낮에 공부, 저녁에 시험</li></ul><p id="90b0c886-8e4b-42d7-be9d-fea9198126b0" class=""><mark class="highlight-yellow">EP 27</mark></p><p id="1f0bca04-f902-432b-94e2-b6dd86d55a45" class="">2) 팀플, 과제 등 다른 학생과 커뮤니케이션 경험이 어떻게 되는지? (시간, 팀 구성 방식 등...)</p><ul id="c13662e7-3194-42e3-9c85-4d94dbce34ea" class="bulleted-list"><li style="list-style-type:disc">코로나로 실험 중단, 온라인(zoom)으로 비대면 발표</li></ul><ul id="53d537f8-0ff8-421b-a79b-93dc663f7bcc" class="bulleted-list"><li style="list-style-type:disc">개인별 발표 대본 작성 후 조원들과 온라인으로 발표 연습</li></ul><p id="66b1c8b1-3350-4c18-9336-f83a300aefd7" class="">
+</p><p id="232def1b-8862-4433-84cc-089a741d34e6" class=""><a href="https://youtu.be/XMYVP6TLTzk">https://youtu.be/XMYVP6TLTzk</a></p><p id="e4dd3161-5579-42d4-932c-2e921b7a19cf" class="">비대면 수업의 장점 : 시간 관리에 효과적(원하는 시간에 강의 듣고 과제하기)</p><p id="2f7134c1-2d6d-41ae-b2b3-2f0b5aa25c31" class="">비대면 수업의 단점 : 실시간 강의 참여율이 떨어져 수업 분위기가 좋지 않음?</p><p id="bec7cc18-eace-465f-b1a4-7c63513838a7" class="">
+</p><p id="b34ad5e4-16b7-44cd-a741-05c0865a23c1" class="">
+</p></div></article></body></html>

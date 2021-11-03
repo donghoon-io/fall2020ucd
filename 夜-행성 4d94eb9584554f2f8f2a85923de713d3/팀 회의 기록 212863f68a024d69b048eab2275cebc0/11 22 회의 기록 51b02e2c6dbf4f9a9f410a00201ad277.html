@@ -1,0 +1,675 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>11/22 회의 기록</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="51b02e2c-6dbf-4f9a-9f41-0a00201ad277" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗓️</span></div><h1 class="page-title">11/22 회의 기록</h1></header><div class="page-body"><h3 id="2ac52f3e-1b68-4f60-ac2c-e94b89109a7e" class="block-color-yellow_background">Ideation, Sketching, Lo-Fi Prototype</h3><h3 id="ef3a43cb-d37e-42bd-92ea-4e716549a43b" class="block-color-teal_background">기존 아이디어</h3><div id="8070ffa6-8b1c-4065-b7ab-7d7474bbd881" class="column-list"><div id="5ff4fce8-e98a-47d2-93f9-eafbfb5f0851" style="width:50%" class="column"><p id="1da285dc-5402-4603-9f24-5d59cd402e1a" class="block-color-blue"><mark class="highlight-red">&lt;</mark><mark class="highlight-red"><strong>아이디어&gt;</strong></mark></p><ul id="cc9d640b-8115-464a-888d-357cec30e1e4" class="toggle"><li><details open=""><summary>스터디 윗 미 (cf. 어몽어스 서버)</summary><ul id="3476e4ac-b73a-4dc5-ac75-e06580308ed2" class="bulleted-list"><li style="list-style-type:disc">지역 대항전 (육성게임과 합친다면)</li></ul></details></li></ul><ul id="208596d2-47dc-4a37-910d-cb7b19286f41" class="toggle"><li><details open=""><summary>육성 게임으로 동기 부여 (👼아기....응애)</summary><ul id="b0ba79f8-9142-487a-9400-f8ff5aa0cbb0" class="bulleted-list"><li style="list-style-type:disc">생활패턴 지키기 → 게임처럼 동기부여 (Forest 어플) (식물 키우기)</li></ul><ul id="1c721420-0b41-4018-bb3f-78fc20ebc350" class="bulleted-list"><li style="list-style-type:disc">아기 키우기 게임</li></ul><ul id="039547ed-1e94-4abe-baf0-8ed679e7c22d" class="bulleted-list"><li style="list-style-type:disc">루틴 형성을 위한 벌금제 플랫폼</li></ul></details></li></ul><ul id="daaa705d-6d10-4175-a5cc-b39d99b487bb" class="toggle"><li><details open=""><summary>생활패턴 주변에 알리기</summary><ul id="868b2ed6-6ba2-4707-b036-54efa0112a55" class="bulleted-list"><li style="list-style-type:disc">가족에게 생활패턴 알리기</li></ul><ul id="a120aedc-ccd6-4102-b458-4db0c446fcba" class="bulleted-list"><li style="list-style-type:disc">국내 시간에 맞추어 지인들과 만날 수 있는 빈 시간을 표시 → 지인들에게 카톡으로 공유 가능</li></ul><ul id="47081b08-94d8-4442-840e-5dcefd248de6" class="bulleted-list"><li style="list-style-type:disc">본인의 수업 중, 수면중 등 현재 상태를 가족/동거인/친구들에게 알리기</li></ul><ul id="018ad263-7bcc-4ffe-a484-b14d8bb14528" class="bulleted-list"><li style="list-style-type:disc">카카오톡 챗봇으로 지인들에게 본인의 중요한 일과 알리기</li></ul></details></li></ul><ul id="b259545a-8d91-4fe7-933c-0ede995398d3" class="toggle"><li><details open=""><summary>생활습관 개선 잔소리봇</summary><ul id="6d3e3996-fba9-4599-9e26-de3cb131dadf" class="bulleted-list"><li style="list-style-type:disc">카페인 계산</li></ul><ul id="c94996ed-b6be-481f-b5e5-fe90a1ab877a" class="bulleted-list"><li style="list-style-type:disc">비타민 먹을 시간 알림</li></ul><ul id="55d4fd0f-3476-4fee-b185-9430b1253f1f" class="bulleted-list"><li style="list-style-type:disc">스트레칭 알리미</li></ul></details></li></ul><p id="8cbf22d8-3ae5-4b41-83e1-61d02fbe3a54" class="">
+</p></div><div id="0bd4dd35-744a-48e7-8b53-15af27dd834b" style="width:50%" class="column"><p id="4c2aa25e-e6a3-45f3-a71d-91f6ea041426" class=""><strong> </strong><mark class="highlight-blue"><strong>&lt;기능&gt;</strong></mark></p><ul id="f54ad0d9-55a4-43a8-94ab-f65ce4f27994" class="toggle"><li><details open=""><summary>한국&amp;유학하는 나라 시간 동시에 알려주기</summary><ul id="bf072e98-cf20-405a-89fb-10c6676a5747" class="bulleted-list"><li style="list-style-type:disc">한국 + 유학하는 나라의 시차를 모두 적용할 수 있는 달력</li></ul><ul id="fe20de27-319f-4120-91e4-6e714b4395ad" class="bulleted-list"><li style="list-style-type:disc">아이폰의 빨간 badge로 앱 오른쪽에 현지시간 보여주기</li></ul><ul id="b3c40cde-4843-4ca1-b49d-1cc4f34faffc" class="bulleted-list"><li style="list-style-type:disc">한국시간, 외국시간 둘 다 계산해서 넣어주는 스케쥴러</li></ul></details></li></ul><ul id="1175555c-f42b-49b8-92c5-e2221469f206" class="toggle"><li><details open=""><summary>시간대 자동 변환</summary><ul id="e5009ce6-0905-4d7e-8054-73035b97be55" class="bulleted-list"><li style="list-style-type:disc">국내/해외 시간 두 가지 모드를 설정 → 휴대폰을 흔들거나 화면 스와이프로 쉽게 전환 가능</li></ul><ul id="418b5cd4-0da8-4d3b-9910-ddc2b5405731" class="bulleted-list"><li style="list-style-type:disc">프로필 상의 해/달 위치로 직관적인 상대방 시간대 파악할 수 있도록</li></ul><ul id="03f46d2d-5a3e-49cf-9b38-59425f4c7fed" class="bulleted-list"><li style="list-style-type:disc">원형 디지털 시계 → 화면으로 하루 일과표 표시</li></ul><ul id="1ab4c1b8-23da-4053-b545-c0365a60b5b9" class="bulleted-list"><li style="list-style-type:disc">다이얼 시차 관리</li></ul></details></li></ul><ul id="3359a8c9-3082-4a40-82c5-2ef68af3d1d8" class="toggle"><li><details open=""><summary>추가적 기능</summary><ul id="69ecdee1-ccec-42de-baee-cdaaf51f88fd" class="bulleted-list"><li style="list-style-type:disc">학교 별, 학사일정 공유 캘린더</li></ul><ul id="a43b9295-b139-4669-a95b-7e9170df5e96" class="bulleted-list"><li style="list-style-type:disc">일정 &quot;미리&quot;알림. 10분, 30분 전에 미리 리마인드 시키기</li></ul><ul id="d652bb08-220e-4c27-a159-e19edae71f83" class="bulleted-list"><li style="list-style-type:disc">공부/ 수업 수강한 시간 보여주는 대시보드 생성</li></ul><ul id="5d0069b1-6f83-4885-9119-e4e25969dee4" class="bulleted-list"><li style="list-style-type:disc"><del>유학하는 나라의 현지 소식 간단 소개 (메인 접속 페이지에서)</del></li></ul><ul id="897b85cb-35a5-4953-8723-6485a6616d8c" class="bulleted-list"><li style="list-style-type:disc">집중타임 정하기 (반드시 필요한 시간 일정하게 유지)</li></ul><ul id="a93f2baf-a5c2-454f-80a5-ef64729ab0cb" class="bulleted-list"><li style="list-style-type:disc">야간시간에 방문 가능한 장소 알려주기 (국내)</li></ul><ul id="936e8cf4-93d7-4ff4-959f-724e870691fc" class="bulleted-list"><li style="list-style-type:disc">간단한 채팅 기능</li></ul><ul id="3a6795e3-1c64-4846-a638-0c1827a95f9c" class="bulleted-list"><li style="list-style-type:disc">반복 알림 횟수 설정 기능</li></ul><ul id="8b4da70d-037d-46e1-82c2-7fd2ef21e724" class="bulleted-list"><li style="list-style-type:disc">협업 시간대 제안 보내기 기능</li></ul><ul id="ef5a3260-ff08-48fe-aa05-806ad75847ed" class="bulleted-list"><li style="list-style-type:disc">음성 알림 설정 기능</li></ul><ul id="b9115edc-2620-467f-bd3e-60ca56fe9599" class="bulleted-list"><li style="list-style-type:disc">대시보드에 남은 학기를 게이지 형태로 시각화</li></ul></details></li></ul><p id="230f41a1-373a-4762-83d8-f5e7411a7651" class="">
+</p></div></div><h3 id="07513191-e54a-45b3-a97a-7450f604153b" class="block-color-teal_background">아이디어 확정</h3><ul id="afef71c3-4b40-45c7-b035-73c64bf48b30" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-orange">생활패턴</mark></strong> vs 학업 (학업은 생활패턴의 하위항목)</li></ul><ul id="56e03e5d-bc8e-47d0-961e-f897ec4e069d" class="bulleted-list"><li style="list-style-type:disc">시차로 어려움을 겪는 귀국 유학생들의 <strong><mark class="highlight-orange">생활 패턴 관리 및 동기부여 서비스</mark></strong></li></ul><ul id="a347918e-e469-4a16-b07f-8ebb88bffba7" class="bulleted-list"><li style="list-style-type:disc"><strong>간략한 서비스 플로우 </strong>: 시간표/시차 반영한 AI 생활패턴 추천 서비스 → 추천 내용을 기반으로 개별 목표 설정 → 목표 달성 동기부여를 위한 성과 시각화<ul id="663f0085-6d37-4c37-a2ef-bb15dbce32bb" class="toggle"><li><details open=""><summary><strong>핵심 task 3개</strong></summary><ul id="3f7ea22f-caee-425d-bf5d-e2db778ec65c" class="bulleted-list"><li style="list-style-type:disc">생활패턴 추천 및 확정</li></ul><ul id="6e788329-9da7-4702-b994-e268e41d5294" class="bulleted-list"><li style="list-style-type:disc">성과 시각화를 통한 동기 부여</li></ul><ul id="5ce126e3-caca-4c5b-a7d1-7be2737ee74f" class="bulleted-list"><li style="list-style-type:disc">한국&amp;유학하는 나라 시간 동시에 알려주기</li></ul><p id="1e534083-325f-4a0f-8139-25047e19a665" class="">
+</p></details></li></ul></li></ul><p id="56fa742a-fcb9-4d9f-b6d3-b970d6464fd1" class="">
+</p><h3 id="370ab173-121c-4c11-9539-71959cfbec3f" class="block-color-teal_background">UI TASKFLOW</h3><ol type="1" id="0d810108-0ea3-4db9-b148-763228357594" class="numbered-list" start="1"><li><strong>정보 기입 &amp; 일정 수집</strong> : <strong>현재 거주 나라, 유학하는 나라, 지역, 학교, 선호하는 생활 방식 (현재 거주 나라 시간대, 유학하는 나라의 시간대)</strong>, 최소 수면시간 입력 </li></ol><ol type="1" id="954f3361-ebe8-4971-8635-41e39928f4c5" class="numbered-list" start="2"><li><strong><mark class="highlight-orange">수면 패턴 추천 및 생활 패턴 확정</mark></strong> : 수업시간에 맞추어 수면 시간 추천 (?), 선택지 제공 →  선택한 것을 시간표 사진으로 자동 입력, 수면 및 수업 시간 제외한 나머지 시간에 할 일 매뉴얼 입력 → 일주일간의 일정 확정 </li></ol><ol type="1" id="96144606-97e1-413d-bb5a-fccbfa6c1eef" class="numbered-list" start="3"><li><strong>목표 설정</strong> : 일주일 간의 목표를 설정한다! (수면 목표, 학업 목표 등 나눠서 설정) task를 언제 할 지 일주일 일정 안에 배정 가능, 오지 않은 일정에 있어서는 유동적으로 수정 가능 </li></ol><ol type="1" id="5c20ea73-7d45-4e67-8088-7fb3078d94bf" class="numbered-list" start="4"><li><strong><mark class="highlight-orange">성과 시각화를 통한</mark></strong> <mark class="highlight-orange"><strong>동기 부여</strong></mark><ul id="13b96f7c-0a91-44f7-9eb9-2cba3c13832f" class="toggle"><li><details open=""><summary><strong>Dashboard</strong> : (4~5 과정을 반복할 때) 얼마나 공부를 하고 있는지, 얼마나 잠을 잤는지 등을 첫 화면에 시각화해서 self-awareness 증진</summary><p id="71f85e4f-dddb-4390-a593-9c143a281586" class="">- 밤하늘의 달과 별 / 별자리 모으기!
+- 어린왕자 나무
+- 커피잔 (구글 애드 넣어서 수익 내기 —&gt; 달성한 유저에게 커피 깊티 주기)
+- 야경의 밝은 도시 불빛들
+- (경쟁적 디자인)</p></details></li></ul><p id="0f9331f3-d91d-46b7-8b9d-e44350f1ae66" class="">
+</p><p id="891a8f4b-9afd-4b21-be4e-19604f33ce34" class="">. </p><p id="b8edee39-766e-467c-9564-c5462fbcbaf9" class="">
+</p><p id="4b7029a1-71cf-4e9d-9c1c-d87b3a7038f6" class="">일주일별로?  합쳐서 자기가 자유롭게 날짜 등을 설정할 수 있게</p><p id="c76d06d9-6978-4286-8127-37adc7462d45" class="">Task 별로 성과 평가?, 협업툴 날짜 지정해서 task 추가, checklist 무지개가 칭찬?</p><p id="8f8bb905-a3c2-4874-9b3e-0e03a63600b7" class="">일주일로 목표를 정할 필요 없는 것 같음. 내가 나에게 내주고 싶은 숙제 </p><p id="a7628f88-845d-4a66-88bc-9a5b94fa724d" class="">
+</p><p id="ae1d4292-daf3-4cee-b9e4-770885fa3e74" class="">친구와 함께 짝으로 설정 가능. 두 명이 모두 task 수행, 목표 달성시 더 많은 리워드? - 상대방이 task 수행하도록 쪼기 (?) 가능 but 친구가 있는 경우에만 효과적이고 그렇지 않은 경우에는 효과가 떨어지기 때문에 선택 기능으로 열어두는 것이 좋을듯</p><p id="a97c0d24-85c6-4482-94f2-786aed18fdd6" class="">
+</p><p id="3a2c485c-db66-442e-9f6f-a94838245030" class="">혼자 하고 있다는 외로움 → </p><p id="7921ce00-2cef-48e9-b84c-eadfd72cfacb" class="">
+</p><p id="6f861d8f-c41b-4bba-bab4-217e6f679404" class="">
+</p></li></ol><ol type="1" id="cf647357-b41b-40ba-955f-36979b83fc3c" class="numbered-list" start="5"><li>추가적 기능 &amp; 구현방법<ul id="57150d1e-ab2d-4712-a955-1d8cdb46a2b3" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-orange">한국&amp;유학하는 나라 시간 동시에 알려주기</mark></strong> (한국 + 유학하는 나라의 시차를 모두 적용할 수 있는 달력)</li></ul><ul id="bfb43dab-6093-4786-b91d-125274022d41" class="bulleted-list"><li style="list-style-type:disc">야간시간에 방문 가능한 장소 알려주기 (국내)</li></ul><ul id="a2a092c8-d7b5-4a68-a686-e3ced94e6091" class="bulleted-list"><li style="list-style-type:disc">알림 방식 : 일정 &quot;미리&quot;알림. 10분, 30분 전에 미리 리마인드 시키기 / 반복 알림 횟수 설정 / 알림 봇</li></ul><ul id="16336747-8858-41b3-986e-834ba7824120" class="bulleted-list"><li style="list-style-type:disc">친구 추가 기능 : 일정 공유, 방해 금지 시간대 공유</li></ul><p id="dd530cf2-d0f4-46ed-a4b6-e79b7098bd5a" class="">
+</p></li></ol><h3 id="27ead45c-4b54-47f2-a20b-bf355fa5b0f4" class="block-color-teal_background">TASK STORYBOARDS</h3><ul id="7fe21772-82ae-4752-bea7-5669fd199c81" class="bulleted-list"><li style="list-style-type:disc">Problem - Solution(서비스 Task)<ol type="1" id="c46adeb8-96fe-4c4a-947e-3aded1f0f918" class="numbered-list" start="1"><li>하루하루 수면 패턴이 마구 바뀐다 - 생활패턴 추천 및 확정</li></ol><ol type="1" id="88bbb3bf-1ce9-43c7-a6da-7e757e706a35" class="numbered-list" start="2"><li>시차를 빠르게 계산하지 못한다 - 한국&amp;유학하는 국가의 시간을 동시에 알려주기</li></ol><ol type="1" id="990c0611-1fc8-4553-91ca-16c097358761" class="numbered-list" start="3"><li>계속되는 실시간 강의로 인해 피로감이 늘어나, 모든 것을 던지고만 싶어진다 - 성과 시각화를 통한 동기부여<p id="806ff273-16f0-4713-9b64-e4e6eae8a394" class="">
+</p></li></ol></li></ul><ul id="031a5dc9-2ce7-42ac-a1d4-5622a30630c2" class="bulleted-list"><li style="list-style-type:disc"><strong>STORYBOARDS</strong><figure id="c7ae4060-5f1a-416a-aa5a-7e898076a00e" class="image"><a href="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___7.jpg"><img style="width:3508px" src="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___7.jpg"/></a></figure><ol type="1" id="e49f7afb-2c59-4b71-85dd-03ca26af8fdb" class="numbered-list" start="1"><li>코로나로 인해 미국 유학 도중 돌아와 한국에서 시차가 16시간이나 나는 UCLA의 수업을 실시간으로 들으며 생활을 하고 있는 정선린씨. 실시간 강의를 새벽에 듣고, 오전에 팀프로젝트를 하는 등 매번 생활패턴이 뒤죽박죽이다.</li></ol><ol type="1" id="b520c81f-12ec-47cf-9494-e4b983b302a1" class="numbered-list" start="2"><li>제대로 된 수면시간이 없어 시간이 날 때마다 쪽잠을 자는 생활을 하다보니 점점 피로가 쌓이고 삶의 질이 떨어지는 것이 느껴진다. 더 이상 이렇게 살 수 없어! 라는 생각에 (우리서비스이름)을 사용해보기로 한다.</li></ol><ol type="1" id="a8165fa5-f835-42c7-9ee0-38543611375a" class="numbered-list" start="3"><li>거주 국가, 유학 지역과 학교를 입력하고 선호하는 생활 패턴 시간대를 설정한다. 밤낮이 바뀐 생활을 하려다가 실패한 선린씨는 한국 시간과 최대한 맞게 살고 싶다고 입력한다. 이미 정신적 그리고 신체적으로 너무 지친 선린씨는 이번 학기 목표 학점을 선택하라는 물음에 B+ 라고 입력한다.</li></ol><ol type="1" id="0d499419-2c26-4917-83bf-199327167905" class="numbered-list" start="4"><li>선린씨는 (우리서비스)가 추천해준 그녀가 선택한 선호 생활 방식과 학기의 난이도에 맞게 건강과 학업의 균형을 지키며 살 수 있는 생활패턴 중 가장 마음에 드는 것을 하나 선택한다. 선린씨는 추천 결과를 따라 밤 10시부터 새벽 2시까지 자고, 2시 30분부터 아침 8시까지 수업을 듣고 오후 1시부터 2시까지 낮잠을 자는 패턴으로 확정하였다. 이제 선린씨는 이러한 생활패턴을 정립하기 위해 노력하고자 한다.</li></ol><figure id="2253545e-a4ad-4840-93f7-20d22dbef3bb" class="image"><a href="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___9.jpg"><img style="width:3508px" src="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___9.jpg"/></a></figure><p id="e8723572-6690-46e0-b045-f3b1f0ab896c" class="">5. 생활패턴을 지키겠다 다짐하고, 내일 제출인 과제가 떠올라 노트북을 켜는 선린씨. 지난주, 선린이는 한국 시간으로 금요일 오전 6시까지였던 에세이 과제 하나를 금요일 오후 6시까지로 착각해 늦게 제출할 수밖에 없었다. 꽤나 반영 비율이 높은 과제였어서 타격이 컸다.</p><p id="8b6ca214-4dc6-42ce-8160-226ffadc1b2d" class="">6. 항상 머릿속으로만 시차를 대충 계산하고 따로 메모를 해놓지 않았던 선린이는 심각성을 느끼고, &lt;서비스이름&gt;을 켰다. 메인 화면의 캘린더를 눌러 앞으로 해야 할 과제 두개를 태스크에 추가했다.</p><p id="820669c4-871c-471d-9cae-cd134ea9bab8" class="">7. 입력 후, 캘린더를 확인해보니 자동으로 해야 할 과제와 마감 기한이 캘린더에 표시되고 있음을 확인할 수 있었다. 자동으로 시차를 계산하여 보여주니 이제 더이상 착각하거나 잊을 일이 없을 것으로 생각되어 선린이는 마음을 놓을 수 있었다.</p><figure id="c6562c1e-fea6-4b80-8be7-1d2c723a7fb2" class="image"><a href="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___8.jpg"><img style="width:3508px" src="../Idea%20Development%20Process%207d2100605bdc4e3b880ed09de65ce255/___8.jpg"/></a></figure><p id="3fe5915f-0673-4722-ad5d-76f043435904" class="">8. 선린이는 계속되는 실시간 강의와 밤에 홀로 집 한켠에서 수강하는 외로움 때문에 점점 지쳐 의욕을 잃어만 간다.</p><p id="c8d0deee-360e-4d91-b80e-730eceb372e9" class="">9. 더 이상 가만히 있다간 수업을 다 던질 것 같다는 생각에, 선린이는 &lt;서비스 이름&gt;에 들어가 본인의 은하수를 켰다. 은하수에는 비슷한 처지의 사람들의 별들로 가득하다. 비록 방금 시작해서 본인의 별이 작은 것이지만, 다른 사람들의 별과 비교해서 초라하기 그지 없는 본인의 별의 크기를 보며, 앞으로 많이 노력해야 이들을 따라잡을 수 있겠다는 생각을 하게 된다.</p><p id="bb7d17cf-bfc7-4ff2-a8dd-4b1bb3e43fac" class="">10. 선린이는, 해당 화면에 있는 몇 가지의 성과 리스트를 확인한다.</p><p id="118c5969-ffaa-433a-a9b1-065db872f8cc" class="">11. 선린이는 먼저 i)는 해낼 수 있을 것 같아서 도전해본다. 오늘 수업에서, 새벽 3시의 실시간 강의에서 10분전이 미리 접속해서 준비하는 데에 성공했다. 별이 조금 커졌고, 이제는 나보다 작은 별들이 꽤 보이는 걸 보고 뿌듯해한다.</p></li></ul><p id="894b5bb1-9bbf-40e6-a81c-2f46410e6246" class="">
+</p><p id="63925a71-db91-40ae-a3c3-d27ad4a9aca3" class="">
+</p><p id="4407ee99-a6cc-42bf-9d38-38ee01d503d0" class="">
+</p></div></article></body></html>

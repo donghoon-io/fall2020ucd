@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Eng version</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b1a08c0-a2e6-4f44-ae17-13edb55216e0" class="page sans"><header><h1 class="page-title">Eng version</h1></header><div class="page-body"><h1 id="e9a23df2-0842-439f-89a6-448571118dd6" class="">POV</h1><ul id="dfec293c-b5e4-4acd-97fb-d4eba6ee8416" class="bulleted-list"><li style="list-style-type:disc">Actionable problem statement → Generative Ideation </li></ul><ul id="91aa921a-0418-40cc-a5c2-9248f7aba2c9" class="bulleted-list"><li style="list-style-type:disc">Good POV → Ideate in a directed manner by creating HMW questions</li></ul><ul id="e71a55d6-5fc9-422a-a137-01d97caddc5e" class="bulleted-list"><li style="list-style-type:disc">POV captures design vision : discover and articulate the meaningful challenge</li></ul><p id="f03ce944-0407-4159-b0e6-f4fb03eee543" class="">
+</p><ul id="28f25ba7-7a42-4a9f-9c52-6d2b9b769bdd" class="bulleted-list"><li style="list-style-type:disc">3 elements of POV : user, need, insight</li></ul><p id="3845af73-0149-4465-bb23-9f81a002664c" class="">
+</p><p id="ccac6474-ce28-4e64-8eea-bc6ce5ca14b1" class="">[<strong>User</strong>] needs to [<strong>User&#x27;s need</strong>] because [surprising <strong>insight</strong>]</p><p id="d356b094-e3a6-490c-8242-32d55ac6257b" class="">                                  ↓                                                 ↓                      </p><p id="19d62b00-5513-4a51-93d6-f840ff62ca46" class="">                                Verb                          synthesized statement that you can leverage in designing a     </p><p id="22bff806-22ed-49c3-81a8-f9b0ce5226ce" class="">                                                                  solution (intrigue people and hold the tension in POV)</p><p id="7823b5f3-01e5-43ca-84a5-bc861f4e48dc" class="">                                                                   (reason for the need X)</p><p id="5b4c4a0a-cf14-4a18-9279-d47ab238c654" class="">
+</p><p id="e6937151-722b-4ad2-a494-32ec3d3fa9be" class="">Ex) </p><p id="827a1ce5-5057-41b7-bb44-0fcacd786878" class="">
+</p><ol type="1" id="2a289738-52ad-4eaf-b8f3-ae43f5b764a1" class="numbered-list" start="1"><li>&quot;A teenage girl needs more nutritious food because vitamins are vital to good health&quot;</li></ol><ol type="1" id="920eeb5f-33f1-43fc-bcfa-37b11bfdf86a" class="numbered-list" start="2"><li>&quot;A teenage girl with a bleak outlook needs to feel more socially accepted when eating healthy food, because in her hood a social risk is more dangerous than a health risk.&quot;</li></ol><p id="07fb976b-b31f-4cb7-ab27-0787ece4e3bc" class="">
+</p><p id="760e4361-f464-4e0c-809f-f63c1dc67d80" class="">No.1 is statement of fact, little excitement, little direction to develop solutions.</p><p id="b4f48297-0564-4eab-a227-a9ebfa01256d" class="">No.2 is actionable, potentially generative, problem statement</p><p id="7575e139-4e1d-445e-8f2f-da0959f81c5d" class="">
+</p><p id="d516f03d-1326-4d8f-ac09-f615fa95859b" class="">
+</p><p id="3ba397e5-2e4f-44ba-abbd-cfaf21262da6" class="">25p</p><h1 id="49021c15-23ed-403d-b82c-d6fe9cba80c5" class="">Design Principles</h1><p id="3a2e124b-a776-4b5b-a4d8-175cac4d4118" class="">
+</p><p id="291c347b-efda-4fe4-a527-d713e0aab744" class=""><strong>Why</strong></p><p id="8c003312-f40d-4af8-b8f4-aedd60f49f20" class="">Design principles → strategies to solve a design challenge </p><p id="36e6aaef-e532-467b-b6fc-1a6ad8f752ed" class="">↓</p><p id="1af342c2-f90a-4a6a-8fe0-fd07bd877621" class="">Articulate these principles, translating findings(needs and insights) → design directives</p><p id="3551110f-d488-42dc-ab2b-e73387c0e1cc" class="">
+</p><p id="cac005bd-c146-4ab3-b489-a291d0673080" class="">Format → capture abstracted, actionable, guidelines for solutions, communicate design intentions to others</p><p id="3b2b0b34-77b9-4ef6-98e1-5dde7570d9a8" class="">
+</p><p id="f922fc20-8dbe-4e73-8780-a29960d84ab4" class="">
+</p><p id="dc9ee7a5-cfc6-494d-b717-abe8df611ebc" class=""><strong>How to use</strong></p><p id="99854275-17dd-4e27-be60-2eb6de530afb" class="">
+</p><p id="173c83c1-be6e-49af-85da-0d8c86f013a7" class="">Develop a list of statements using imperative phrasing that outlines essential guidelines to create successful design solutions. </p><ul id="0b390f1a-dead-4e05-acfa-4ef3d5cd2d08" class="bulleted-list"><li style="list-style-type:disc">distill your understanding of the design space&amp;user</li></ul><ul id="d27d858d-10d4-4a29-81a8-7c5c56c2516c" class="bulleted-list"><li style="list-style-type:disc">define what would be the meaningful challenge to solve</li></ul><p id="a11a3214-c3b0-4249-bcaa-d01fdb5745d1" class="">↓</p><p id="29e112e6-36f4-4f79-841c-5b398253b2f2" class="">create the <strong>design principles</strong> to outline what&#x27;s necessary to achieve that success</p><p id="66f374b2-e578-4486-8bf0-28e6f8372b8e" class="">                              ↓          </p><p id="574a2424-404d-4498-b79c-3c89430d5951" class="">translate POV, needs, insights → design principles</p><ul id="e52c4014-e0d1-4172-a9dd-9b6c1c7dbde3" class="bulleted-list"><li style="list-style-type:disc">stating your findings in terms of solutions</li></ul><ul id="49233a07-f38a-4cc6-8f91-0b0f446285e1" class="bulleted-list"><li style="list-style-type:disc">mintaining the focus on user-centered needs and insights you discovered</li></ul><ul id="c0ff408b-94ef-46c1-b561-e8338b0a76a5" class="bulleted-list"><li style="list-style-type:disc">back out design principles from potential solutions that you and users find compelling</li></ul><p id="6ec1eb44-f651-4be1-b969-9adfdc79fc10" class="">
+</p><p id="db1f0b36-5997-4968-b46c-2905fbeadf62" class="">
+</p><p id="df4b53c7-005d-4aee-8694-3d8879b1bc62" class="">Design principles - independent of a specific solution aka useful guidelines regardless of the particular solution / identify the broad solution context to help you develop design principles. </p><p id="762d7701-8b71-450e-bac2-4397161a57d4" class="">
+</p><p id="496ab639-0bf6-4db5-98d7-84ed32dab8d3" class="">
+</p><p id="10aba838-91cf-45d5-a92d-e316f6df9f6a" class="">Ex) know you are designing physical space - help understand how to phrase your principles.</p><p id="86da9362-74ac-4918-bd85-9e03e6d92d8c" class="">                                                                   vs</p><p id="1f9c209f-ced6-42e8-a80e-6c7d6cd8bbaa" class="">     know you are creating gift but not know whether it will be physical, digital or experiential       </p><p id="0de888b2-8429-4324-9fa7-173999820b2e" class="">
+</p><p id="96466687-4721-40b8-8422-a2351f4c38e6" class="">
+</p><p id="b334e22c-cb3f-43db-a16b-0dc29fe8bdfd" class="">26p</p><h1 id="5b20d0c7-e2a6-4bb2-bc88-7a43ff1cb2c7" class="">How Might We Questions</h1><p id="529a3b31-a38b-426d-86c3-6f2b09783c6c" class="">
+</p><p id="d0855f84-b452-45a4-a2fd-b23474144a59" class=""><strong>Why</strong></p><p id="0a07bdde-31a0-418c-8f3a-10ec4e47e0e1" class="">HMW questions → short questions that launch brainstorms </p><p id="2f956774-c245-4ee6-ac09-81ac81ded6f8" class="">POV / Design Principles ——→ <strong>HMW Questions</strong> → Seed for ideation  </p><p id="66f81c35-09ed-416a-b1bd-a4b86f9cb64e" class="">                                                             ↓</p><p id="b2950d60-777b-4b8d-87e6-eb20f5ea8c34" class="">                                   broad enough that there are a wide range of solutions</p><p id="bc75c4f3-1c1e-4fe1-91c1-4c98adea8d0b" class="">                                   narrow enough that the team has some helpful boundaries </p><p id="f13e0211-7233-4ee2-b179-a6ed5a45bda9" class="">                            → HMW questions will vary with the project and how much progress the team has made in project work</p><p id="f3da2249-0109-4d5f-9502-5bcdad081eae" class="">
+</p><p id="52683a9e-975f-4aa5-a2da-15ca13951270" class="">
+</p><p id="b4917029-c7bf-412b-974a-8ed6c11cd6bf" class="">
+</p><p id="7578fe3c-7d05-4499-bebf-c490684822ed" class=""><strong>How to generate </strong></p><ol type="1" id="860d1080-6f2d-474f-b3a0-bb1953cb46fc" class="numbered-list" start="1"><li>Begin with POV or problem statement </li></ol><ol type="1" id="320b4efa-9eb4-41c5-83b1-bace5f6f9a44" class="numbered-list" start="2"><li>Break that larger challenge up in to smaller actionable pieces</li></ol><ol type="1" id="fdc61896-90e5-438f-b1a2-1e99275bc367" class="numbered-list" start="3"><li>Look for aspects of the statement to complete the sentence : How might we....</li></ol><p id="9cfa310c-a9a6-4b84-8c10-a509bbabe739" class="">Brainstorm the HMW questions before the solutions brainstorms</p><p id="96270339-770c-4314-b05a-c1d06fb80d83" class="">
+</p><p id="d4f97966-de7a-4e71-8557-19adb25dbb22" class="">
+</p><p id="4ca4fa16-24d1-41e1-96e0-d816e0285a72" class="">
+</p><p id="5ec6777b-a7e6-49d8-9453-5c7396840a36" class="">28p </p><h1 id="5cc152a7-9590-4653-b67b-22a216f880fc" class="">Brainstorming</h1><p id="90c2f00f-318f-42b7-9fe9-4bf8a0af8e57" class="">
+</p><p id="ec092696-4a9f-40a4-be5b-c81a90322e9c" class=""><strong>Why</strong></p><ul id="6f80846e-1dfb-4e52-8ca1-3e49ce8b8a5b" class="bulleted-list"><li style="list-style-type:disc">Great way to come up with a lot of ideas that you would not be able to generate by just sitting down with a pen and paper.</li></ul><ul id="469dcdcd-118e-4395-8fa9-0a4370a18698" class="bulleted-list"><li style="list-style-type:disc">Intention → to leverage the collective thinking of the group by engaging with each other, listening and building on other ideas</li></ul><ul id="fdb8c833-f5ea-4b6f-b633-88c201395c93" class="bulleted-list"><li style="list-style-type:disc">creates a distinct segment of time → intentionally turn up the generative part of your brain and turn down the evaluative part</li></ul><ul id="d13e7646-766d-47ad-900d-d801395759d2" class="bulleted-list"><li style="list-style-type:disc">can be used → 1. to come up with design solution, 2. come up with ideas </li></ul><p id="a199a7c0-8623-4c05-ad9a-d70cb7662918" class="">
+</p><p id="25ae4081-27eb-4a67-9153-a737d36a296b" class="">
+</p><p id="2cf7d96e-c978-4ade-a819-1cdfa63ee15f" class=""><strong>How</strong></p><p id="0119aef8-03e0-4835-abcf-41ea28257f33" class="">
+</p><ul id="b4f00325-6f02-40e9-9074-502699a9476a" class="bulleted-list"><li style="list-style-type:disc">&quot;Brainstorm mode&quot; - Be intentional about setting aside a period of time</li></ul><ul id="2defc59e-a323-46ae-9a5d-b66a2e3bc87f" class="bulleted-list"><li style="list-style-type:disc">Invest energy into a short period of time (15mins or 30mins) → high engagement</li></ul><ul id="cca2666d-4461-40ba-b13d-1d8a0710011e" class="bulleted-list"><li style="list-style-type:disc">Get in front of a whiteboard or around a table, take an active posture of standing or sitting upright, Get close together</li></ul><ul id="bb5e1859-a399-439e-bca3-03a9c0853b67" class="bulleted-list"><li style="list-style-type:disc">Write down clearly what you are brainstorming</li></ul><ul id="90dbc748-a3f2-44a0-9c6d-9765465b4257" class="bulleted-list"><li style="list-style-type:disc">Use HMW question</li></ul><p id="7208ec3d-ad49-49cb-b2b0-8a653b75a850" class="">
+</p><p id="561d93cc-13c8-4802-a1c4-444483bef91f" class="">2 ways to capture the ideas of a brainstorming</p><ol type="1" id="e2973a72-cf2e-4ff2-8b94-9a3328d2c095" class="numbered-list" start="1"><li>Scribe : legibly and visually captures on the board ideas that team members call out. capture EVERY idea, regardless of your own feelings about each idea </li></ol><ol type="1" id="17686d4b-561f-4bcf-9b48-0f971848b832" class="numbered-list" start="2"><li>All-in : Each person will write down each of his/her ideas as they come and verbally shre it with group. post-it notes</li></ol><p id="e3752b81-a33a-408a-b5ff-7f65006a4652" class="">
+</p><p id="4503c06d-077a-431e-967b-b5487f1f2922" class="">
+</p><p id="3de5b2f1-b64d-4d96-99b5-ab72116a9ebf" class="">29p</p><h1 id="31a57fda-f02d-4483-ad99-df1a7a5af505" class="">Facilitate a Brainstorm</h1><p id="8a8d2c9f-5cde-4bb6-9da2-0c5334cadf42" class="">
+</p><p id="362f525f-3a62-467a-a991-710625c8aef9" class=""><strong>why</strong></p><p id="2be038fa-b116-4b98-81b8-8757ad69d1ad" class="">
+</p><p id="565faa44-2976-4af2-a4c1-4688d8f77b9b" class="">Good facilitation → Generative brainstorm (coming up with many, wide-ranging ideas)</p><p id="3e52e919-fa0d-4355-a61a-80756b618bff" class="">
+</p><p id="57af4466-3ed1-4080-9c93-633fa854f329" class=""><strong>how (As facilitator, what should we do to facilitate a brainstorm?)</strong></p><ul id="e40df06c-27d9-4d42-ae8c-37451d2d532c" class="bulleted-list"><li style="list-style-type:disc">Energy : keep a pulse on the energy of the group. Slow down or get stuck → make an adjustment, Create a variation to the HMW statement to get the group thinking in another direction (prepare HMW options ahead of time) , have a few provocative ideas to re-energize the team</li></ul><ul id="a30b5d1c-4392-450e-a8ea-48d0c091d16a" class="bulleted-list"><li style="list-style-type:disc">Constraints : Add constraints to HMW questions, create process constraints ex) time limit on each HMW statement</li></ul><ul id="d8f30eed-22be-4e9b-8316-3b803d633303" class="bulleted-list"><li style="list-style-type:disc">Space : plenty of vertical writing area → allows the group to generate a large number of potential solutions, balance between having a footprint that is big enough for everyone &amp; not so large that some people started to feel removed / all members of the group should be able to reach the board in two steps. Each person has access to sticky notes&amp;marker </li></ul><p id="bde04268-9f5e-43f7-b885-66e0d1b9b23b" class="">
+</p><h3 id="fa216ac0-0285-46d4-9d52-c5ffeba7d04b" class="block-color-yellow_background"></h3></div></article></body></html>

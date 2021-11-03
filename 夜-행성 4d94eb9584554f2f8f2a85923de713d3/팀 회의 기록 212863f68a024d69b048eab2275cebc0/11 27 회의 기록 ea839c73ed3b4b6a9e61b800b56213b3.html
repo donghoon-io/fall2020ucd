@@ -1,0 +1,712 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>11/27 회의 기록</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ea839c73-ed3b-4b6a-9e61-b800b56213b3" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">💫</span></div><h1 class="page-title">11/27 회의 기록</h1></header><div class="page-body"><h3 id="cba7b8fd-8af4-4f4b-a232-16e3885f12f0" class="block-color-teal_background">Presentation Slides Guidelines (10 min)</h3><p id="d86832c0-813f-4a57-818a-b5d7db935eaf" class="block-color-yellow_background"><strong>1.  Value Prop, Problem and Solution Overview (1 slide)</strong></p><ul id="d36fc4d6-b693-402e-b5a8-d60e36a91986" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue">夜-행성 : </mark>으쌰으쌰 건강한 방구석 유학 생활 도우미<figure id="ea6e6fad-40f5-4846-b6a2-39c8edac18c8" class="image"><a href="11%2027%20%E1%84%92%E1%85%AC%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%20ea839c73ed3b4b6a9e61b800b56213b3/_2020-11-27_21.55.48.png"><img style="width:453px" src="11%2027%20%E1%84%92%E1%85%AC%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%20ea839c73ed3b4b6a9e61b800b56213b3/_2020-11-27_21.55.48.png"/></a></figure><p id="cc2d4121-7eee-4c02-8bfa-8a8f24000ae9" class="">
+</p></li></ul><p id="2204a25b-3be0-45a7-94a9-8f6a6181eb21" class="">
+</p><p id="d5e9c615-85ae-4318-b68a-707fe87f307d" class="block-color-yellow_background"><strong>2. Heuristic Evaluation Results (2-3 slides)</strong></p><figure id="e11ce712-cec9-48fe-b5dc-131317a75dcc" class="image"><a href="11%2027%20%E1%84%92%E1%85%AC%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%20ea839c73ed3b4b6a9e61b800b56213b3/_2020-11-26_15.56.42.png"><img style="width:547px" src="11%2027%20%E1%84%92%E1%85%AC%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8%20ea839c73ed3b4b6a9e61b800b56213b3/_2020-11-26_15.56.42.png"/></a></figure><ul id="b21fedc6-9502-423f-95c6-895e53ac5651" class="bulleted-list"><li style="list-style-type:disc">전체적인 워딩 문제 : &#x27;보채기&#x27;(워딩이 너무 강압적), 조원(워딩이 너무 평이), 크루원들끼리 반응 보이는 부분(특히 코멘트에서 어떤 이야기를 해야 할지 모르겠고, 이상한 말을 남기는 크루원이 있으면 어떻게 할지 걱정)</li></ul><ul id="6f9d612c-ae23-40b2-bfc3-f340b545b096" class="bulleted-list"><li style="list-style-type:disc">생활습관 추천 : &#x27;별 5개의 의미&#x27; 와닿지 않음, 생활습관 선택 문제 (easy한 생활습관을 원하는 사람이라면 이 서비스를 이용하지 않을텐데, 왜 하위 난이도를 가지고 있는 생활습관도 추천하는지? 난이도를 별로 표현하면 유저들이 선택을 할 때, 내적 갈등을 겪을 가능성이 있음...)</li></ul><ul id="8939e120-9af8-4b10-b503-04c70b72c1e2" class="bulleted-list"><li style="list-style-type:disc">각 단계별 성취 시각화 문제(별/행성/별자리) : Daily Health Tracking은 별자리, 크루원끼리 개인의 성취 비교는 행성, 크루원끼리는 행성 키우기, 다른 팀과의 경쟁은 우주로 진출... ⇒ 이 단계가 너무 복잡하고 이해가 구분이 잘 안됨!</li></ul><ul id="3b5afc95-261f-42e3-aa06-b56db25908e2" class="bulleted-list"><li style="list-style-type:disc">여타 UI적인 측면 : 재학중인 대학 입력, Daily Health Tracking에서 아이콘 다양함</li></ul><p id="b92b103b-0044-4efb-8e84-e0aea05e2096" class="">
+</p><p id="3391a983-926e-4595-ba15-068099b4c151" class="block-color-yellow_background"><strong>3. Overview of Revised Design (2-3 slides)</strong></p><p id="1cb5c3ea-98c0-40f9-bc1c-aedba0105577" class="">With reasoning for changes (can combine with HE results slides)- <strong>Show the before and after sketches</strong> and <strong>explain your rationale</strong> for making those changes.</p><p id="1d63b25e-837f-434a-8e9e-62bb2c96ffb3" class="">
+</p><ul id="b52b2b6a-a07a-44bc-82ef-949884d80db9" class="toggle"><li><details open=""><summary>전체적인 워딩 문제 </summary><ul id="bf578ee3-78e8-4db3-80a6-b1c216a21fdf" class="bulleted-list"><li style="list-style-type:disc">보채기 → 깨우기, 각성시키기, 응원하기, 찌르기, 연필 쥐어주기, <strong><mark class="highlight-purple">쫌-🌞(해)</mark></strong></li></ul><ul id="50030b6b-121a-437e-a1e6-ae2d33fce032" class="bulleted-list"><li style="list-style-type:disc">조원 → <strong><mark class="highlight-purple">crew</mark></strong></li></ul><ul id="265f815b-ba0d-4476-86e0-1cfd72e91b17" class="bulleted-list"><li style="list-style-type:disc">크루원들끼리 반응 보이는 부분 → <mark class="highlight-purple"><strong>pre-defined 된 코멘트 버튼 만들기</strong></mark></li></ul></details></li></ul><p id="ba82ed84-d368-4bcb-9b30-6ae9fd00fc45" class="">⇒ 이를 통해 강압적인 분위기 해소 + prd-defined된 메시지 버튼을 제공함으로써 이상한 대화 방지</p><p id="5e75b962-5d43-4c95-ac03-568879daa4ed" class="">
+</p><ul id="0fa6cffe-259a-49b7-9543-a3534af89053" class="toggle"><li><details open=""><summary>시간표/생활습관 추천</summary><ul id="d593530d-9c40-423b-9e58-f08ae2eb9ac6" class="bulleted-list"><li style="list-style-type:disc">추천 → 수면 시간대만 선택하도록 조정</li></ul><ul id="a64a8eed-16d5-4455-858a-664a87f05e91" class="bulleted-list"><li style="list-style-type:disc">수면 및 수업 시간 제외한 나머지 시간에 할 일 매뉴얼 입력 → 일주일간의 일정 확정
+목표 설정 → 일주일 간의 목표를 설정한다! (수면 목표, 학업 목표 등 나눠서 설정)</li></ul><ul id="2b03bcdc-b168-4ccd-bdd9-5c3e96f07978" class="bulleted-list"><li style="list-style-type:disc">task를 언제 할 지 일주일 일정 안에 배정 가능, 오지 않은 일정에 있어서는 유동적으로 수정 가능</li></ul><ul id="c15c25b8-d2bc-4650-8e49-5884ee4cdc27" class="bulleted-list"><li style="list-style-type:disc">시간표 → OCR을 이용하여, 카메라로 본인의 시간표를 찍어서 인식</li></ul></details></li></ul><p id="0f2dcc8d-576e-42e6-8464-5d16b7bcf88d" class="">⇒ 유저에게 더 많은 선택권 부여. 일주일 단위로 목표를 설정하여 지인 모임 등 유동적인 일정도 반영 가능.</p><p id="d62837fb-9913-4c5b-a34a-146110c6c755" class="">
+</p><ul id="2f5a3bae-7f9f-4170-8c6c-8823c6e37380" class="toggle"><li><details open=""><summary>각 단계별 성취 시각화 문제 (별/행성/별자리)</summary><ul id="95c689f4-9024-4462-9772-8240b46ae425" class="bulleted-list"><li style="list-style-type:disc">Daily health tracking → 로켓 거점 이동, 최대 4개 이동 가능 (총 결산 한 달 단위로 진행)</li></ul><ul id="649f7e23-e0bc-4b13-8a57-87870ea60bba" class="bulleted-list"><li style="list-style-type:disc">개인의 성과 시각화 → 깃발 갯수. 모은 깃발은 별을 점령하는 데 쓰임</li></ul><ul id="37f11c2d-4367-479d-bc07-1406a8394f9d" class="bulleted-list"><li style="list-style-type:disc">팀원들끼리 깃발 모아서 → 행성 수집</li></ul></details></li></ul><p id="8d10d3b3-57b3-409b-994c-14bd212a0d17" class="">⇒ 개인/크루/크루간 성취를 시각화 하여 보여주기. 크루간 경쟁을 통해 행성을 획득함으로써 동기 부여. 로켓의 거점 이동, 깃발로 행성 점령 등 보다 확실한 개념 활용하여 유저의 혼란 줄임. </p><p id="63b011e5-9640-4180-a6e4-f9f86b887574" class="">
+</p><ul id="d659b21c-1c7f-4581-ac6b-4311ee3b222c" class="toggle"><li><details open=""><summary>여타 UI적인 측면</summary><ul id="590dd465-22bb-46ba-b1ee-5d38a5ec513d" class="bulleted-list"><li style="list-style-type:disc">재학중인 대학 입력 → 삭제 </li></ul><ul id="2fcc6c55-22c5-4f0b-a18d-babaaa5c09af" class="bulleted-list"><li style="list-style-type:disc">Daily Health Tracking에서 아이콘 다양함 → 아이콘 통일</li></ul></details></li></ul><p id="f86c8b48-1da1-4747-8d26-a779b85c1015" class="">
+</p><p id="2f47c30f-c4f7-44b0-b1a1-8808495d58ae" class="block-color-yellow_background"><strong>4. Prototype Overview (3 slides)</strong></p><p id="df022b57-a0ba-403a-be19-b1a3aedc63a2" class="">
+a. Prototyping Tools : Figma
+b. Why did you use them? : 
+c. How did the tool helped? (what was easy) : 
+d. How did the tool did not help? (what was hard) : 
+e. Limitations/tradeoffs of the current prototype (what was left out of the prototype &amp; why). : </p><p id="2264452d-8a6a-4870-aba4-508389b20e33" class="">
+</p><p id="69ce0449-78e1-48ab-bcf0-0e6d46a5c09a" class="block-color-yellow_background"><strong>5. Demonstration of Prototype (live or recorded if not possible)</strong></p><p id="0c18713e-1411-493e-bc4c-7caac4d91827" class="">
+</p><p id="4352e1dc-546b-4a88-be1b-dbc49dcc5235" class="">a. Demonstration of your prototype in its current running state
+b. At least one of your three tasks should work at this point</p><p id="f1a72e08-395d-490b-9dd6-0d9d57470482" class="">
+</p><h3 id="24b1dd1f-4025-41cf-9ee4-96fccdceb843" class="block-color-teal_background">역할분담</h3><ul id="632ca845-5ebf-4088-9c41-2e4ac59176fe" class="bulleted-list"><li style="list-style-type:disc">지수 : HE 결과 정리 → 수정해야 하는 부분 정리 1  + flow 재정리 (~토)</li></ul><ul id="3f546ce6-55af-42aa-a5f4-26b5d92033dd" class="bulleted-list"><li style="list-style-type:disc">시윤, 수진 : UI 전체 flow 초기 스케치 2 (~일 or 월)</li></ul><ul id="82ce9b73-24cb-4d6e-a079-48cf6942335d" class="bulleted-list"><li style="list-style-type:disc">나윤 : 프로토타입 제작 1  (~수요일 밤? 목요일 아침?)</li></ul><ul id="25f5b01e-d80b-45e7-a972-74499b9230f4" class="bulleted-list"><li style="list-style-type:disc">유진, 동훈 : 발표자료 제작 (~ 수업 전) + 발표 2</li></ul><p id="5c10e3fb-cf3a-4a08-869c-2fcc2df230af" class="">
+</p><h3 id="54299cff-6ce3-408b-8db6-147b025abf01" class="block-color-teal_background">UI TASK FLOW (new ver.)</h3><ol type="1" id="3754471b-a36f-4669-9977-6ede7685bbee" class="numbered-list" start="1"><li><strong>정보 기입 &amp; 일정 수집</strong> : <strong>현재 거주 나라, 유학하는 나라, 지역, 선호하는 생활 방식 (현재 거주 나라 시간대, 유학하는 나라의 시간대)</strong>, 원하는 최소 수면시간 입력 </li></ol><ol type="1" id="91dea7de-6890-425a-a4cd-840ccc8cd987" class="numbered-list" start="2"><li><strong><mark class="highlight-orange">수면 패턴 추천 및 생활 패턴 확정</mark></strong> : 수업시간에 맞추어 수면 시간 추천, 수면시간 기반으로 선택지 제공 →  선택한 것을 시간표 사진으로 자동 입력, 수면 및 수업 시간 제외한 나머지 시간에 할 일 매뉴얼 입력 → 일주일간의 일정 확정</li></ol><ol type="1" id="c0bdf60b-3076-48a0-9994-7df092de9128" class="numbered-list" start="3"><li><strong>목표 설정</strong> : 일주일 간의 목표를 설정한다! (수면 목표, 학업 목표 등 나눠서 설정) task를 언제 할 지 일주일 일정 안에 배정 가능, 오지 않은 일정에 있어서는 유동적으로 수정 가능 </li></ol><ol type="1" id="86aacee7-f44f-444e-82f7-1c6a0c0bccc8" class="numbered-list" start="4"><li><strong><mark class="highlight-orange">그룹 성과 평가를 통한</mark></strong> <mark class="highlight-orange"><strong>동기 부여 </strong></mark>: 수면 시간대가 비슷한 유저 4명 정도로 랜덤하게 그룹 및 피드 생성, 프로필, Time zone, 목표 task 성취율 보여줌. 같은 그룹 내 멤버가 task를 끝냈을 경우 다른 멤버들이<strong> (정해진 코멘트 목록을 활용하여)코멘트 달거나 좋아요, 잘했어요 버튼 누르기 가능. 등록 일정 마감이 다가오는데 </strong>Task 안 하면 <strong>재촉하기 </strong>기능.(<strong>쫌-🌞(해))Task 안 하면 그룹에서 ghost 모드.가 되어 멤버들이랑 소통 불가. 다 하고 완료한 인증샷 보내면 그룹 내 사람들이 확인하고 승인 눌러야 다시 소통 가능. </strong>→ <span style="border-bottom:0.05em solid">평가의 객관성 유지</span></li></ol><ol type="1" id="08a8d5a9-bc0a-4b79-91f6-3991f6a36ac6" class="numbered-list" start="5"><li>그룹 안에서 개인이 달성한 성취율만큼 매일 깃발을 모을 수 있다. 만약 자신이 설정한 task를 하지 못했다면 fail로 처리되어 성취율이 올라가지 않지만 늦게라도 했을 경우에는 원래 성취율의 50% 획득 가능.</li></ol><ol type="1" id="fe9d168e-2120-4286-8380-5879fdea7702" class="numbered-list" start="6"><li>각 그룹 멤버들의 성취율의 합으로 한 달동안 깃발을 모으고, 마지막날 깃발을 더 많이 모아서, 행성에 꽂은 그룹이 승리. 가장 높은 성취율을 달성한 멤버는 MVP에 선정됨. MVP에 선정되면 자신의 우주선을 꾸밀 수 있음.</li></ol><ol type="1" id="01aec654-0a02-4b69-a65e-008e1b581891" class="numbered-list" start="7"><li>그룹이 깃발을 모아 행성을 점령하는 것. 
+깃발을 더 많이 모아 행성에 더 많이 꽂는 팀이 해당 행성 차지.
+- 맵 상에서 그룹의 행성을 확인할 수 있음</li></ol><ol type="1" id="7512e493-a5a6-4302-9615-429bcd2980c4" class="numbered-list" start="8"><li><strong><mark class="highlight-orange">Daily Health Tracking 자기평가 </mark></strong><strong>: </strong>본인이 선택한 생활패턴에 맞게 잘 잤는지, 식사를 거르지 않았는지, 운동을 했는지, 카페인을 과하게 섭취하지 않았는지 평가 (커피 3잔 이상 → 안됨!) → 항목 별로 목표를 달성한 경우 우주선이 거점 1개 이동 가능. 4*30(31) 기준으로 한 달에 몇 퍼센트 달성했는지, 매달 총 결산 시간. </li></ol><p id="82b7cdb1-427e-44ec-a826-4d8db5b654ad" class="">
+</p><ul id="b2eb1027-3615-40b0-973a-295bfbe3c259" class="toggle"><li><details open=""><summary>선린 수업 시간표</summary><p id="8339137b-546c-4426-bba1-227f8dbc7e91" class=""><span style="border-bottom:0.05em solid">수업 시간표(LA시간)</span></p><p id="5adcd767-32ce-4c29-80fb-d6a16e59cea7" class="">월: 오전 10시-11시</p><p id="e47f3ba9-d6b7-4b1b-b98c-f7609895efa9" class="">화: 오후 1시-2시, 2시-3시</p><p id="cda5305f-cd8e-47c0-95d0-81adbc9a4049" class="">수: 오전 10시-11시, 오후 2시-5시</p><p id="02ad4f1f-c7c5-4aa3-a093-d04fb711489b" class="">목: 오후 1시-2시, 2시-3시</p><p id="cfe2f56a-a4e0-4cf6-9bae-49c000ae042a" class="">금: 오후 2시-5시</p><p id="c544c9ed-26e4-4bb9-ac44-cf4ad61ddcd2" class=""><span style="border-bottom:0.05em solid">수업 시간표(한국시간)</span></p><p id="ef92873a-7219-4b4d-9e73-6cfea2a6a492" class="">화: 오전 3시-4시</p><p id="dc879aa6-962a-45d2-8b77-cc7237cc8621" class="">수: 오전 6시-7시, 7시-8시</p><p id="4baf7d36-1f05-4b6f-898f-8d9a9749e7e6" class="">목: 오전 3시-4시, 7시-10시</p><p id="3b0c01c4-9a28-4b6f-8ffa-083efd1529f2" class="">금: 오전 6시-7시, 7시-8시</p><p id="b110e637-2387-4adc-9cc7-e773303f3ecc" class="">토: 오전 7시-10시</p></details></li></ul><ul id="ee5c7eda-4644-46f9-917a-1d883aeb87d6" class="toggle"><li><details open=""><summary>선린 일주일 일정</summary><p id="c23720fc-b6e1-4d8f-ab6e-1a29680b0aa9" class=""><span style="border-bottom:0.05em solid">일요일</span>
+오전 12시-7시 수면
+오전 7시-8시 공복 유산소 운동
+오후 3시-5시 UCD 팀플
+오후 9시-11시 DT4C 프로젝트 구상</p><p id="a7fadc5a-2dc8-4bfb-9460-01319dde8aa8" class=""><span style="border-bottom:0.05em solid">월요일</span>
+오전 12시-7시 수면
+오전 7시-8시 공복 유산소 운동
+오후 5시-6시 화상 과외 수업
+오후 9시-11시 Data Journalism 과제</p><p id="b3f361a1-8369-492e-8de9-b5626f6a7a5c" class=""><span style="border-bottom:0.05em solid">화요일</span>
+오전 3시-4시 수업
+오전 4시-10시 수면
+오후 3시-5시 UCD 팀플
+오후 8시-10시 DT4C 레포트 작성
+오후 11시-12시 수면</p><p id="ac94b3ad-516d-44b0-afc1-6d7363583bc2" class=""><span style="border-bottom:0.05em solid">수요일</span>
+오전 12시-6시 수면
+오전 6시-7시, 7시-8시 수업
+오후 3시-4시 필라테스
+오후 9시-12시 수면</p><p id="7795a14a-ff28-40b3-a600-8f0ebb7acfa5" class=""><span style="border-bottom:0.05em solid">목요일</span>
+오전 12시-3시 수면
+오전 3시-4시 수업
+오전 4시-6시 UCD 중간 레포트
+오전 7시-10시 수업
+오후 5시-6시 화상 과외 수업
+오후 7시-9시 Data Journalism 시험 공부
+오후 11시-12시 수면</p><p id="2ff41c42-bd68-420c-9f2d-878c4d4cb4a2" class=""><span style="border-bottom:0.05em solid">금요일</span>
+오전 12시-6시 수면
+오전 6시-7시, 7시-8시 수업
+오후 2시-4시 UCD 팀플
+오후 7시-8시 필라테스
+오후 9시-11시 Data Journalism 시험 공부</p><p id="bc746cc5-c5e1-4be7-8e0e-9148a324bb2c" class=""><span style="border-bottom:0.05em solid">토요일</span>
+오전 12시-7시 수면
+오전 7시-10시 수업
+오후 1시-2시 홈트레이닝
+오후 7시-10시 DT4C 프로젝트 작업</p></details></li></ul><p id="7f59ac83-2562-4c89-b07d-1e01245a3318" class="">
+</p></div></article></body></html>

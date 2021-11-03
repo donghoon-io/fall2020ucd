@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>인터뷰 결과</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5999128f-2f85-449a-90af-dfaab940a4b7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📄</span></div><h1 class="page-title">인터뷰 결과</h1></header><div class="page-body"><p id="047f1416-4e09-4735-8d0c-3a0bac2a4a50" class=""><span class="user">@Donghoon Shin</span> <span class="user">@­박유진</span> </p><p id="db16d0cb-8eb4-4fac-a907-7aaf0612ca39" class=""><strong>최O혁 (CMU 유학 도중 귀국. 동부 시간대)</strong></p><p id="0229e78f-10d7-4e4f-a3f1-cc5f464dd720" class="">
+</p><ol type="1" id="c94665f2-747a-4c6a-af5c-013aca568c36" class="numbered-list" start="1"><li>수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가?<ol type="a" id="d3593ce6-29e3-4df5-90fa-88ba003ef156" class="numbered-list" start="1"><li>하루 일과를 전반적으로 물어보기 (취침, 식사 등을 타임테이블 받듯이 물어보기)<p id="e847a3b3-37b1-4fd4-b037-d9c1a285e3c4" class="">9~4시까지 수업 듣고, 잠: 오전 6시, 오후 2시에 일어남. 밥은 오후 3시, 8시, 새벽에 군것질</p></li></ol><ol type="a" id="b32e463e-b863-4ab1-896f-1ced3d41081e" class="numbered-list" start="2"><li>잠은 충분히 자는지? O<ol type="i" id="9c596ccd-5ecd-4ac1-895f-018cf8e7934b" class="numbered-list" start="1"><li>수면 패턴은 어떤지? N지선다<p id="f87bbd6a-4db2-4086-9529-a5bd4b230f2a" class="">잠을 오히려 너무 많이 자는 것 같음</p><p id="65ea70b7-f23b-4f4d-b88d-d7cfc9330d26" class="">건강은 확실히 바이오리듬이 깨져서 불편하고 몸이 허하긴 하다</p><p id="18707f2c-b75d-4289-9e61-45c902d6358b" class="">머리가 자주 아픔, 진 빠짐</p></li></ol></li></ol><ol type="a" id="6e62ff3d-93bb-4236-bfa0-d10c8b2df8c6" class="numbered-list" start="3"><li>다른 사람들(유학생, 국내 다른 친구들)과 교류는 어떻게 하는지? 어느 시간대에 하는지? 약속은 어떻게 잡는지?<p id="b1274589-9b6c-47fd-bcdb-fecb5522df34" class="">일반적으로 카페에서 만나서 공부. 같이 과제를 한다. 미국 애들이랑 하는게 좋다 → 줌 틀어놓고!</p><p id="b58cdcc9-9cdd-4d42-a304-3473f8697765" class="">(피츠버그가 아침일 때)</p></li></ol><ol type="a" id="73f4e226-cd6d-44c6-a246-1c34db24f6bb" class="numbered-list" start="4"><li>가족들과의 교류, 생활은 어떻게 하는지?<p id="abd5cdeb-af9b-442e-a096-f1c84043bbba" class="">혼자 그냥 다 하는 편</p></li></ol></li></ol><ol type="1" id="c8fa0299-09b5-452e-9a45-8274adc09b85" class="numbered-list" start="2"><li>팀플, 과제 등 다른 학생과 커뮤니케이션 경험? (시간, 팀 구성 방식 등...)<ol type="a" id="fa360278-880b-43c4-8b8f-5cecb30a6636" class="numbered-list" start="1"><li>팀플<ol type="i" id="7c42ad99-83ac-42eb-96cf-29e999008298" class="numbered-list" start="1"><li>현재 팀플 현황? (만약 한다면 2번으로 이동) O<p id="49f73452-eebf-4a67-9820-2b048738b594" class="">2개</p></li></ol><ol type="i" id="ac39b758-2d3f-424f-9de6-954a722ad5ac" class="numbered-list" start="2"><li>다른 학생들과 교류가 필수적인데, 이를 어떻게 하고 있는지? (팀플 시간 정하기, 툴 사용 등) N지선다<p id="3cab5fa4-714d-4e88-ace4-5dfd3a83f935" class="">예전에는 타임존 맞는 학생들과 교수님이 짜주셨다</p><p id="501e3683-39d1-4d3a-ad82-9ec8597ad8b9" class="">지금은 그런거 없어서, 지금은 필요할 때 전화하고, 시간대가 맞는걸 체크하고 연락을 하는 편</p><p id="25c82c60-3e12-4ba4-8f4e-c52430c707c8" class="">툴은 essay같은거 제출하는 거라서 구글닥 같은걸로 협업</p></li></ol><ol type="i" id="b6c5592d-9e91-4fdd-b9f3-d14558728a8a" class="numbered-list" start="3"><li>팀플에 어려움이 있다면 무엇인지? 현재는 이를 어떻게 해결하고 있는지? O → N지선다<p id="c7ee4cd7-7850-4614-a8c5-fac5eed7e817" class="">두명이라 딱히 어려운건 없는데, 프리라이딩이 원격으로 하니까 더 많아지는 것 같아서 좀 짜증난다</p></li></ol></li></ol><ol type="a" id="27eb4308-1da1-4824-b0ac-f3e8d9cd9b6f" class="numbered-list" start="2"><li>과제<ol type="i" id="cf4d538f-e2af-4739-97af-b281652d9a05" class="numbered-list" start="1"><li>현재 과제 현황? (만약 한다면 2번으로 이동) O<p id="2dcebc31-89f6-443f-8783-ea0950582878" class="">매주 3개</p></li></ol><ol type="i" id="d6274154-08da-4c94-b3d6-9471fbaa73d4" class="numbered-list" start="2"><li>과제와 같이 유동적인 일정은 어떻게 시간을 할당하는지<p id="8a76fc58-6f74-43fd-b206-e3edd840a021" class="">과제는 일어 나자마자 하는데, 그래서 하루를 다 소비하는 편...</p><p id="df6ca4cb-5ec4-4113-aaf4-7c76d33c37a8" class="">→ 개빡셈</p></li></ol></li></ol></li></ol><ol type="1" id="9e3ddf8d-0e17-4e14-8fbf-06d83efad114" class="numbered-list" start="3"><li>만약 시차로 인한 생활 관리를 어떻게 하고 있는지?<ol type="a" id="8c2bdf4f-886f-402b-848a-bb7a0acb7dc9" class="numbered-list" start="1"><li>HOXY....어려움이 있는지? 있다면 어떻게 해결하고 있는지?<ol type="i" id="2a62e43a-5b7e-4e6f-a16a-15b0e38c512a" class="numbered-list" start="1"><li>학업 관련 : 학교 측에서 시차를 고려해 주는지? O → N지선다 (수업 시간 배정, 팀플 구성원 배정, 교수님과의 면담 등)<p id="70ce921f-03ba-4593-b490-197300790056" class="">그건 교수 by 교수인데, 어떤 교수님들은 office hour을 줌으로 할 때 시간대를 아시아권 애들을 위해서 좀 더 바꿔준 부분이 있음</p><p id="c78ba76d-3186-438b-a0d9-377adcbbabf4" class="">아니면 office hour을 없애고, q&amp;a 게시판 같은거 운영해서 async로 하거나</p></li></ol><ol type="i" id="f752ca15-7284-4ccf-84bf-c30206781fc3" class="numbered-list" start="2"><li>일상 생활 관련 O → N지선다<p id="88a88eff-f4e2-4cfa-a393-f5e3484f44d6" class="">보통 약속들이 다 저녁에 있는데, 수업 들을때랑 겹쳐서 약속을 가지기 힘듦..</p><p id="ba63186f-35d3-4d01-969a-a1ee70874961" class="">운동은 아예 못하는 편...</p></li></ol><ol type="i" id="416db443-1715-4494-b86a-faf6889c89f8" class="numbered-list" start="3"><li>건강 관련 O → N지선다<p id="f08c1574-0161-4b1e-a9f0-a8988dc5e807" class="">sleep cycle이 너무 꼬였다. 그래서 몸이 너무 허약해진다...</p><p id="f0d4cabe-4437-4485-8578-c3a0ad3e159a" class="">밥은 너무 많이 먹게된다</p></li></ol></li></ol></li></ol><ol type="1" id="2ecc8b15-6f7e-41d7-af3d-5a822a640181" class="numbered-list" start="4"><li>국내 체류 유학생들의 시간 관리 관련 선호는?<ol type="a" id="fea16844-2053-4960-a3ee-8ab4c15756da" class="numbered-list" start="1"><li>유학하는 나라 시간에 맞춰 생활하고 싶은지? vs 최대한 한국 시간에 맞춰 생활하고 싶은지? O<p id="e463dca6-478e-4dea-9c0c-20df01b114c4" class="">당연히 우리나라 시간대로</p><ol type="1" id="1c04ae0d-69e8-4489-ac4b-c507784d1445" class="numbered-list" start="1"><li>왜 그런지?<p id="483b0410-f1ea-4bf7-beeb-90dc006ae7e5" class="">사회생활도 있고, 우리 집 사람들이랑 같이 뭘 할 수가 없다</p></li></ol></li></ol></li></ol><ol type="1" id="78e9eade-bf83-454b-b3d4-1fa04d206735" class="numbered-list" start="5"><li>수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? O<p id="f26a7215-e6e5-4427-b714-cc6a9cac3520" class="">여자친구 만나는거</p><ol type="1" id="2fc7cf59-826b-4dc2-82d8-595e6df797ca" class="numbered-list" start="1"><li>어떤 시간대에 하는지?<p id="091a149b-00e9-4d21-94d4-e7e75cae8050" class="">수업 제낄 수 있는 날 평일 하루 + 주말 하루</p><p id="4333d562-6709-446d-8bdf-e8421ada281f" class="">조율이 너무 빡세다. 여자친구가 공무원이라 그 시간대가 엄격한데, 거기서 뭔갈 하기가 너무 어렵다</p></li></ol></li></ol><p id="02fe842f-0771-4cc3-80cb-60b04081d505" class="">
+</p><hr id="b882512e-8640-4f09-add2-edc205ab0066"/><p id="4120897a-bd01-49e5-9593-43adad34a53a" class="">
+</p><p id="0faeb410-6e76-43f0-b86e-bb91d74ee3b8" class="">
+</p><p id="413cf44c-9f0e-4381-813d-68fde00b382a" class=""><strong>김0훈 (UC BERKELEY 합격했으나 코로나로 인해 미국 가지 못함/ 미국 서부 시간대)</strong></p><p id="71e30124-c33c-4251-a948-7f5d58b9ddff" class="">
+</p><ol type="1" id="507f4553-5391-4811-a1cb-bd21ec515225" class="numbered-list" start="1"><li><strong>수업, 취침, 기상 등 현재 하루 일과가 어떻게 되는가?</strong><ul id="064664d7-7434-4a4a-8806-7b62cdad2996" class="bulleted-list"><li style="list-style-type:disc"><strong>전반적인 하루일과가 궁금합니다! </strong></li></ul><p id="06d0199f-087a-43b0-ba92-910ef56ff939" class="">
+</p><p id="304e2914-e69c-48cb-bc8a-21a34e826c92" class="">전반적으로 한국에서 생활할 때와 비슷하다. 미 서부 워킹아워(수업, 미팅 등) 가 겹치는 시간대가 새벽 1시-3시, 아침 7시-10시 정도라서 한국 시간으로 새벽 3시에 취침해서 다음날 일정에 따라서 7-11시 정도에 기상하고 있다.</p><p id="a630cd0c-c28b-4f43-b3b3-9afa9a07b832" class="">
+</p><ul id="c074f616-4855-4620-b3e6-d3df4f062c50" class="bulleted-list"><li style="list-style-type:disc"><strong>잠은 충분히 자고 계신가요? 수면 패턴은 어떤가요 (자는 시간, 일어나는 시간)? </strong><p id="e5e6a7d5-961c-4016-9eb3-e1b8a8d500b1" class="">수면 패턴이 불규칙적이긴 하지만 부족함은 없다고 느낀다. </p><p id="7bbfe1ca-269c-4a81-9ed8-a9a355273133" class="">
+</p></li></ul><ul id="cfcc1bce-eb89-4359-b00e-89883d36170e" class="bulleted-list"><li style="list-style-type:disc"><strong>다른 사람들(유학생, 국내 다른 친구들)과 교류는 어떻게 하시나요? 어느 시간대에 만나시나요? 약속은 어떻게 잡는지?</strong></li></ul><p id="867c06f8-d254-47d4-a701-77c9ef33435e" class="">
+</p><p id="d9e73b0d-0b3d-4af5-a55a-d175e12f9899" class="">수업의 sync여부에 가장 dependent한 듯 하다. sync인 수업을 많이 듣는 경우에는 시간대를 완전히 바꾸는 경우도 있는 것 같으나, 나같은 경우에는 녹강 위주로 수업을 들어서 평범한 시간대에 생활이 가능하다. </p><p id="2aa77cc2-fb7e-4a4c-bf81-c4fcd16569be" class="">
+</p><p id="3e396457-c7cc-46a1-aca0-207d2881eed3" class="">
+</p><ul id="3865e9dc-8077-462f-844f-3cea2e3656ab" class="bulleted-list"><li style="list-style-type:disc"><strong>가족들과의 교류, 생활은 어떻게 하는지? (가족들이 잘 때 깨어있거나 이런 상황이 있으신가요?)</strong></li></ul><p id="7d17c5be-23fa-4658-bc94-260b689266ec" class="">
+</p><p id="7562ecef-82e2-4a8d-bca1-5b8958190da3" class="">한국에서랑 동일하다. </p><p id="68e7cd4b-c1df-47a6-b9e2-d0a5467b1364" class="">
+</p><p id="871ce35d-f4ef-4790-8fe3-a0d2b28220fb" class="">
+</p></li></ol><ol type="1" id="681b43b9-100a-450d-a597-a37bf003c877" class="numbered-list" start="2"><li><strong>팀플, 과제 등 다른 학생과 커뮤니케이션 경험? (시간, 팀 구성 방식 등...)</strong><ol type="a" id="2a099f42-56c1-46c6-bf28-f7ac761a2f33" class="numbered-list" start="1"><li><strong>팀플</strong><ul id="d75ff09c-552f-40a4-84ff-d9af224f4783" class="bulleted-list"><li style="list-style-type:disc"><strong>현재 팀플 혹은 미팅을 하고 계신가요?</strong></li></ul><p id="190b3484-1c85-4973-a8ff-b2ed088de1e3" class="">
+</p><p id="03357c0c-7b7e-4238-afab-2d7c88ddbc6d" class="">미팅을 하고 있다.</p><p id="b3cf6e3c-affc-4a61-b710-049ebb0f0667" class="">
+</p><ul id="e771d410-ea6d-4bd3-b939-43c3599a59cf" class="bulleted-list"><li style="list-style-type:disc"><strong>만약 그렇다면 다른 학생들과 교류가 필수적일 것 같은데, 이를 어떻게 하고 있으신가요? (팀플 시간 정하기, 툴 사용 등) </strong></li></ul><p id="0e8467e1-089e-4a11-ae92-fe88979a02d9" class="">
+</p><p id="29b89d3b-4f5e-4131-8075-b9b80fdf8532" class="">zoom을 통해 미팅을 진행한다. 주로 미팅 시간은 아침 7시-10시 정도에 진행하며, 시차 편의를 어느정도 봐주고 진행해서 꼭두새벽부터 할 일은 별로 없다. </p><p id="5707a733-399e-48a6-99dc-bb8aa8701ed0" class="">
+</p><p id="2d922b13-7cf6-4d6a-8784-91afd157d46a" class="">
+</p><ul id="f076e09c-2580-41a8-bc64-8c720bfb4b4f" class="bulleted-list"><li style="list-style-type:disc"><strong>팀플 혹은 미팅에 어려움이 있다면 무엇인가요? 현재는 이를 어떻게 해결하고 있으신가요? </strong></li></ul><p id="601042fb-0d8c-4cac-a8e8-9e96520c13a0" class="">
+</p><p id="0989740e-136f-429f-81cb-d70dde0f2ab9" class="">
+</p></li></ol><ol type="a" id="2fd10b83-a878-43c6-a962-73b56d161c2c" class="numbered-list" start="2"><li><strong>과제</strong><ul id="1538ef8f-31fd-4cc6-831c-271b67cb265c" class="bulleted-list"><li style="list-style-type:disc"><strong>현재 과제가 있나요? </strong></li></ul><p id="6dae2c58-aa65-4b5a-9451-0eab8a8856cd" class="">수업 과제가 있음. </p><p id="895d9e23-7ef1-471f-a8b0-3ceb8fedb7ba" class="">
+</p><ul id="05decd87-dadc-4432-9266-b1a0029831ec" class="bulleted-list"><li style="list-style-type:disc"><strong>과제와 같이 유동적인 일정은 어떻게 시간을 할당하시나요?</strong></li></ul><p id="5ed97f58-f6cc-416d-8ccf-bf432fe16455" class="">보통 생활 시간 중 남는 시간에 과제를 하고, 만약 다 하지 못하면 못한 상태로 제출한다. </p><p id="714fe0f3-3ac5-42a7-86c6-05fb4ec3f578" class="">
+</p></li></ol></li></ol><ol type="1" id="a89a641e-062a-44fb-85e7-8d01903a98f4" class="numbered-list" start="3"><li><strong>시차로 인한 생활 관리를 어떻게 하고 계신지 궁금합니다!</strong><ol type="a" id="24606375-e14d-49e7-9e9a-c17b38a0d1e5" class="numbered-list" start="1"><li><strong>HOXY....시차로 인한 어려움이 있는지? 있다면 어떻게 해결하고 있는지?</strong><ul id="236c8e43-ce8f-4ba8-9a29-2b0fe639b05c" class="bulleted-list"><li style="list-style-type:disc"><strong>학업 관련 : 학교 측에서 시차를 고려해 주는지?  (수업 시간 배정, 팀플 구성원 배정, 교수님과의 면담 등)</strong></li></ul><p id="2b8ed9de-4c3e-4b57-a3f9-3926e43c7e98" class="">Sync 수업의 경우 얄짤없지만 대부분의 수업이 녹강을 올려주신다. 특히 세미나 형식의 수업을 제외한 대부분의 수업은 외국 학생들을 배려햐여 녹강을 올려주는 추세인 것 같다. 교수님과의 면담, 미팅 등은 학생의 시간대를 최대한 고려해서 잡아주시는 편이다. </p><p id="7e455164-f484-48f7-b4a5-5dcd10072aed" class="">
+</p><p id="4d96eaa8-848d-45d5-a2f6-0e305a9f3b31" class="">
+</p><ul id="6ee4c8f6-8f7c-4db1-89ec-5b00dd1da6f0" class="bulleted-list"><li style="list-style-type:disc"><strong>일상 생활 관련 </strong></li></ul><p id="ef548e01-6ff7-4958-ba85-681fae90ed52" class="">
+</p><p id="c32ba6a9-daac-41e7-a927-9ceb5bd371ab" class="">새벽 1시에 수업이 있는 날은 친구들과 저녁 늦은 약속이나 음주 불가능하다. 또한, 아침 7시 미팅이 있는 날에는 기상시간이 너무 일러서 불편할 때가 있다. </p><p id="143612a6-f356-4f0a-8022-b64131989893" class="">
+</p><p id="7dcfc871-241b-41f9-a146-d7484e3f1c27" class="">
+</p><ul id="146b398c-c976-4520-9bba-98024c68a4df" class="bulleted-list"><li style="list-style-type:disc"><strong>건강 관련 </strong></li></ul><p id="cd83862e-c496-4d0c-aec1-9aa69124a7d7" class="">놀랍게도 건강 관련의 어려움은 전혀 없다. 오히려 아침 일찍 일정이 있다보니까 이런 일정 덕분에 일찍 자고 일찍 일어나게 되어 건강한 삶을 살고 있는 중인 것 같다.</p><p id="7a43deda-2b31-4b07-814c-68bd68ea2bfa" class="">
+</p><p id="df05550f-48f8-4f89-af52-fe94baace222" class="">
+</p></li></ol></li></ol><ol type="1" id="41e78471-ad7c-49c8-9f7c-49ba1614b951" class="numbered-list" start="4"><li><strong>시간 관리 관련 선호는 어떻게 되시나요?</strong><ol type="a" id="9f4d845e-db70-4227-b0ad-829f21624a14" class="numbered-list" start="1"><li><strong>유학하는 나라 시간에 맞춰 생활하고 싶은지? vs 최대한 한국 시간에 맞춰 생활하고 싶은지?</strong><p id="11630be2-1a06-4353-b6ab-9af48ab1e1c3" class="">
+</p><p id="9abefe7c-144d-4e6b-bdd6-926ec1c7fc61" class="">한국 시간에 맞춰 생활하고 있고 앞으로도 이를 유지하고 싶다.. 건강적인 측면이나 사회적인 측면에서도 나와 생활 반경이 겹치는 사람들과 동일하게 한국 시차에 맞게 사는것이 더욱 도움이 되는 듯 하다.</p><p id="4f7b64ae-48e6-4065-881f-f1cc4ab34696" class="">
+</p><p id="51fd693f-3c13-4609-a097-d2dbf1a205d8" class="">
+</p><p id="03f71bfe-c651-4ffd-8802-92f51ebcecdc" class="">
+</p></li></ol></li></ol><ol type="1" id="6526e833-e689-4c7f-b01e-ba2a65fb94c3" class="numbered-list" start="5"><li><strong>수업 외에 일상에서 비중을 두는 여타 활동이 있는지? 있으면 무엇인지? </strong><ol type="a" id="efec0eb2-63ab-408a-9837-68c2f4bb188e" class="numbered-list" start="1"><li><strong>어떤 시간대에 하는지?</strong></li></ol><p id="f73882d4-d081-4ad0-bbe0-4772ebdb5ddc" class="">
+</p><p id="c123b785-2f88-4d35-a0e9-b5943806eeb3" class="">운동, 친구들과의 약속 등이 학업 생활 이외에 주를 이룬다. 이를 하는 시간은 한국 생활 때와 그렇게 크게 차이는 없다.  </p></li></ol></div></article></body></html>
